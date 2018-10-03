@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wsndata.data">
+	<class name="LandRight" table="LandRight">
+		<composite-id>
+			<key-property name="docNo" column="DocNo" />
+			<key-property name="plantId" column="PlantId" />
+			<key-property name="typeId" column="TypeId" />
+			<key-property name="seq" column="SEQ" /> 
+		</composite-id> 
+		
+		<property name="docRai" column="DocRai" />
+        <property name="docNgan" column="DocNgan" />   
+        <property name="docWah" column="DocWah" />    
+        <property name="irrigationIn" column="IrrigationIn" /> 
+        
+        <property name="regionNo" column="RegionNo" />
+        <property name="provinceNo" column="ProvinceNo" />     
+        <property name="districtNo" column="DistrictNo" />
+        <property name="subDistrictNo" column="SubDistrictNo" /> 
+       
+      
+        <property name="rentPrice" column="RentPrice" /> 
+        <property name="ownRent" column="OwnRent" />  
+        
+        <property name="addressNo" column="AddressNo" /> 
+        <property name="moo" column="Moo" />  
+        <property name="irrigationAreaId" column="IrrigationAreaId" /> 
+        <property name="landStatus" column="LandStatus" />  
+        <property name="landType" column="LandType" /> 
+        <property name="landTypeOther" column="LandTypeOther" />  
+        
+        <property name="approvedBy" column="ApprovedBy"/>
+        <property name="approved" column="Approved"/>
+        <property name="approvedDate" column="ApprovedDate"/>
+        
+        <property name="waterSource" column="WaterSource"/>
+        
+        <many-to-one name="plant" class="Plant" insert="false" update="false" fetch="join" lazy="false">
+            <column name="PlantId" />
+        </many-to-one>
+        
+         <many-to-one name="landRightType" class="LandRightType" insert="false" update="false" fetch="join" lazy="false">
+            <column name="TypeId" />
+        </many-to-one>
+    
+       	 <set name="plantDetail" table="PlantDetail" cascade="all" fetch="subselect" lazy="false">
+               <key update="false" >
+               		<column name="DocNo" />
+	                <column name="PlantId" />
+	                <column name="TypeId" />
+		        	<column name="SEQ" />
+              </key>      
+          	<one-to-many class="PlantDetail" />
+       	 </set>
+    
+ 	</class>
+</hibernate-mapping>

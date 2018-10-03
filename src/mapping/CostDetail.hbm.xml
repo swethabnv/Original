@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wsndata.data">
+	<class name="CostDetail" table="CostDetail">
+	    <composite-id>
+			<key-property name="plantId" column="PlantId" />
+			<key-property name="costId" column="CostId" />
+			<key-property name="breedTypeId" column="BreedTypeId" />
+			<key-property name="breedGroupId" column="BreedGroupId" />
+			<key-property name="seq" column="SEQ" />
+			<key-property name="docNo" column="DocNo" />
+			<key-property name="typeId" column="TypeId" />
+		</composite-id> 
+		<property name="amount" column="Amount" />
+		<property name="costDate" column="CostDate" />
+		
+        <many-to-one name="cost" class="Cost" lazy="false" fetch="join" insert="false" update="false">
+             <column name="CostId" />
+        </many-to-one>
+        
+        <many-to-one name="plantDetail" class="PlantDetail" lazy="false" fetch="join" insert="false" update="false">
+            <column name="PlantId" />
+			<column name="DocNo" />
+			<column name="TypeId" />
+			<column name="SEQ" />
+			<column name="BreedTypeId" />
+			<column name="BreedGroupId" />
+        </many-to-one>
+        
+ 	</class>
+</hibernate-mapping>

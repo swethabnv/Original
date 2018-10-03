@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wsndata.data">
+	<class name="Asset" table="Asset">
+		<id name="assetId" column="AssetId">
+			 <generator class="identity" />
+		</id>
+		<property name="assetName" column="AssetName" />
+        <property name="lastUpdateDate" column="LastUpdateDate" />   
+        <property name="lastUpdateBy" column="LastUpdateBy" />
+        <property name="isTotal" column="IsTotal" />
+        <!--     
+        <list name="assetDetail" table="AssetDetail" cascade="all" fetch="subselect" lazy="false">
+               <key update="false" >
+                 <column name="AssetId" />
+              </key>      
+            	<index column="SEQ"/>
+          		<one-to-many class="AssetDetail" />
+       	 </list>        
+ 	-->
+ 	</class>
+</hibernate-mapping>

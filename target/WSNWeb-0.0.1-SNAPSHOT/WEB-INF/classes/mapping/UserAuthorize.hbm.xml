@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wsndata.data">
+	<class name="UserAuthorize" table="UserAuthorize">
+		<composite-id>
+			<key-property name="userName" column="UserName" />
+			<key-property name="menuId" column="MenuId" />
+		</composite-id> 
+		<property name="authorize" column="Authorize" />
+     
+        <many-to-one name="user" class="User" insert="false" update="false" fetch="join" lazy="false">
+			<column name="UserName" />
+			
+        </many-to-one>
+        
+        <many-to-one name="menu" class="Menu" insert="false" update="false" fetch="join" lazy="false">
+			<column name="MenuId" />
+        </many-to-one>
+        
+ 	</class>
+</hibernate-mapping>

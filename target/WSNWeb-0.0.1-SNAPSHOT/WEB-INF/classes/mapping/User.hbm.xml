@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wsndata.data">
+	<class name="User" table="User">
+		<id name="userName" column="UserName">
+			 <generator class="assigned" />
+		</id>
+		<property name="password" column="Password" />
+        <property name="branchCode" column="BranchCode" />
+        <property name="firstName" column="FirstName" />
+        <property name="lastName" column="LastName" />
+        <property name="tel" column="Tel" />
+        <property name="mobile" column="Mobile" />
+        <property name="email" column="Email" />
+        <property name="active" column="Active" />
+        <property name="level" column="Level" />
+        <property name="createDate" column="CreateDate" />
+        <property name="createBy" column="CreateBy" />
+        <property name="lastUpdateDate" column="LastUpdateDate" />
+        <property name="lastUpdateBy" column="LastUpdateBy" />
+        <property name="groupUser" column="GroupUser" />
+        <property name="abbrPrefix" column="AbbrPrefix" />
+        <property name="regionNo" column="RegionNo" />
+        <property name="provinceNo" column="ProvinceNo" />
+        <property name="districtNo" column="DistrictNo" />
+        <property name="subDistrictNo" column="SubDistrictNo" />
+        <property name="farmerGroupId" column="FarmerGroupId" />
+        
+         <!-- 1 User to Many UserAuthorize-->
+         <set name="userAuthorize" table="UserAuthorize" lazy="true" fetch="subselect">
+              <key>
+                 <column name="UserName" />
+              </key>
+               <one-to-many class="UserAuthorize" />
+        </set>
+        
+		<!-- 1 User to many UserRegion   --> 
+        <set name="userRegion" table="UserRegion" fetch="subselect" lazy="false" cascade="all">
+        	 <key update="false">
+                 <column name="UserName" />
+              </key>
+               <one-to-many class="UserRegion" />
+        </set>
+        
+        <!-- 1 User to many UserProvince-->
+	    <set name="userProvince" table="UserProvince" cascade="all" fetch="subselect" lazy="false"> 
+			<key update="false">
+	  			<column name="UserName" />
+	  		</key>
+			<one-to-many class="UserProvince" />
+		</set>  
+		
+		 <!-- 1 User to many UserFarmerGroup --> 
+	    <set name="userFarmerGroup" table="UserFarmerGroup" cascade="all" fetch="subselect" lazy="false">   
+			<key update="false">
+	  			<column name="UserName" />
+	  		</key>
+			<one-to-many class="UserFarmerGroup" />
+		</set>
+      
+ 	</class>
+</hibernate-mapping>

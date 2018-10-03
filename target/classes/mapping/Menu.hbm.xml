@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wsndata.data">
+	<class name="Menu" table="Menu">
+		<id name="menuId" column="MenuId">
+			 <generator class="identity" />
+		</id>
+		<property name="pmenuId" column="PMenuId" />
+        <property name="seq" column="SEQ" />   
+        <property name="mtext" column="MText" />     
+        <property name="maction" column="MAction" />
+        <property name="visible" column="Visible" />
+        <property name="defaultVal" column="DefaultVal" />
+        
+        <!-- iterative -->
+        <list name="childMenu" cascade="all" inverse="true" lazy="true" fetch="subselect">
+	  		<key on-delete="cascade">
+	  			<column name="PMenuId" not-null="true"/>
+	  		</key>
+	  		<index column="MenuId"/>
+			<one-to-many class="Menu" />
+	  	</list>
+	  	
+        <many-to-one name="parentMenu" class="Menu" insert="false" update="false" lazy="false" fetch="join">
+			<column name="PMenuId" />
+		</many-to-one>
+		
+       
+ 	</class>
+</hibernate-mapping>

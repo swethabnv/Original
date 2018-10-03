@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wsndata.data">
+	<class name="LandCheck" table="LandCheck">
+		<id name="landCheckId" column="LandCheckId">
+		   <generator class="identity" />
+	    </id>
+		
+        <property name="plantYear" column="PlantYear" />
+        <property name="plantNo" column="PlantNo" />     
+        <property name="idCard" column="IdCard" />
+        <property name="firstName" column="FirstName" /> 
+        <property name="lastName" column="LastName" /> 
+        
+		<property name="docNo" column="DocNo" />
+		<property name="typeId" column="TypeId" />
+		<property name="docRai" column="DocRai" />
+        <property name="docNgan" column="DocNgan" />   
+        <property name="docWah" column="DocWah" />
+        
+        <property name="checkDate" column="CheckDate" />
+        <property name="checkTime" column="CheckTime" />
+        <property name="result" column="Result" />
+        <property name="remark" column="Remark" />
+        <property name="checkBy" column="CheckBy" />
+         
+        <property name="lastUpdateDate" column="LastUpdateDate" /> 
+        <property name="lastUpdateBy" column="LastUpdateBy" />  
+        <property name="breedTypeId" column="BreedTypeId" />  
+        
+        <property name="committee1" column="Committee1"/>
+        <property name="committee2" column="Committee2"/>
+        <property name="onwer" column="Owner"/>
+        <property name="refPlantId" column="RefPlantId"/>
+        <property name="checkPeriodId" column="CheckPeriodId"/>
+         
+		 <list name="landCheckPrepareSoil" table="LandCheckPrepareSoil" cascade="all" fetch="subselect" lazy="false" >
+              <key update="false">
+              	<column name="LandCheckId" />
+              </key>
+              <index column="SEQ"/>
+              <one-to-many class="LandCheckPrepareSoil" />
+         </list>
+         
+		 <list name="landCheckPlant" table="LandCheckPlant" cascade="all" fetch="subselect" lazy="false" >
+              <key update="false">
+              	<column name="LandCheckId" />
+              </key>
+              <index column="SEQ"/>
+              <one-to-many class="LandCheckPlant" />
+         </list>
+         
+		 <list name="landCheckManure" table="LandCheckManure" cascade="all" fetch="subselect" lazy="false" >
+              <key update="false">
+              	<column name="LandCheckId" />
+              </key>
+              <index column="SEQ"/>
+              <one-to-many class="LandCheckManure" />
+         </list>
+         
+		 <list name="landCheckMixed" table="LandCheckMixed" cascade="all" fetch="subselect" lazy="false" >
+              <key update="false">
+              	<column name="LandCheckId" />
+              </key>
+              <index column="SEQ"/>
+              <one-to-many class="LandCheckMixed" />
+         </list>
+         
+		 <list name="landCheckDisease" table="LandCheckDisease" cascade="all" fetch="subselect" lazy="false" >
+              <key update="false">
+              	<column name="LandCheckId" />
+              </key>
+              <index column="SEQ"/>
+              <one-to-many class="LandCheckDisease" />
+         </list>
+         
+		 <list name="landCheckHarvest" table="LandCheckHarvest" cascade="all" fetch="subselect" lazy="false" >
+              <key update="false">
+              	<column name="LandCheckId" />
+              </key>
+              <index column="SEQ"/>
+              <one-to-many class="LandCheckHarvest" />
+         </list>
+         
+		 <list name="landCheckImages" table="LandCheckImages" cascade="all" fetch="subselect" lazy="false" >
+              <key update="false">
+              	<column name="LandCheckId" />
+              </key>
+              <index column="SEQ"/>
+              <one-to-many class="LandCheckImages" />
+         </list>
+    
+ 	</class>
+</hibernate-mapping>

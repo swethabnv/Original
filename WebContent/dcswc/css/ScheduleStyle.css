@@ -1,0 +1,52 @@
+.scheduleMonth {
+	background-color: #d7def0;;
+	font-size: 14px;
+	vertical-align: middle;
+	font-weight: bold;
+	text-align: center;
+	font-family: tahoma
+}
+
+.scheduleDay {
+	background-color: #d7def0;
+	font:12px tahoma;
+	text-align: center;
+}
+
+.scheduleResource {
+	background-color: #d7def0;
+	font:12px tahoma;
+	text-align: center;
+}
+
+.scheduleResourceHeader {
+	background-color: #d7def0;;
+	text-align: center;
+	font-size: 12px;
+	font-weight: bold;
+	font-family: tahoma;
+}
+
+.scheduleWeekend {
+	background-color: #d9dadc;
+	font:12px tahoma;
+	cursor: pointer;
+	text-align: center
+}
+
+.scheduleWeekday {
+	background-color: #f0f0f0;
+	font:12px tahoma;
+	cursor: pointer;
+	text-align: center
+}
+
+.scheduleInfo {
+	background-color: #FEFECD;
+	font:12px tahoma;
+	cursor: pointer;
+	text-align: center;
+	padding: 5px;
+	border-width: thin;
+	border-style: ridge
+}

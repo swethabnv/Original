@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=0, maximum-scale=1">
+<meta name="viewport" content="width=1280,user-scalable=yes">
+<title>BANK FOR AGRICULTURE AND AGRICULTURAL CO-OPERATIVES</title>
+</head>
+
+		<script src="/js/jquery.js"></script>
+		<script src="/js/hoverIntent.js"></script>
+		<script src="/js/superfish.js"></script>
+        
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+ 		<script src="//code.jquery.com/jquery-1.9.1.js"></script>
+  		<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <script>
+		  $(function() {
+			$( "#datepicker" ).datepicker();
+		  });
+		</script>
+        
+		<script>
+
+		(function($){ //create closure so we can safely use $ as alias for jQuery
+
+			$(document).ready(function(){
+
+				// initialise plugin
+				var example = $('#example').superfish({
+					//add options here if required
+				});
+
+				// buttons to demonstrate Superfish's public methods
+				$('.destroy').on('click', function(){
+					example.superfish('destroy');
+				});
+
+				$('.init').on('click', function(){
+					example.superfish();
+				});
+
+				$('.open').on('click', function(){
+					example.children('li:first').superfish('show');
+				});
+
+				$('.close').on('click', function(){
+					example.children('li:first').superfish('hide');
+				});
+			});
+
+		})(jQuery);
+
+
+		</script>
+
+        <link rel="stylesheet" type="text/css" href="css/style.css"/>
+        <script type="text/javascript" src="js/scripts.js"></script>
+        <body>
+
+<div class="main-inside">
+
+	<div class="header">
+    	<div class="inside">
+    		<div class="logo-inside"><img src="images/logo.png" width="337" height="51" /></div>
+            <div class="logout">
+            	<div class="nav-logout">
+                	<ul>
+                    	<li class="welcome"><img src="images/welcome-text.png" width="68" height="14" /></li>
+                        <li><img src="images/arrow-logout.png" width="5" height="10" /></li>
+                        <li>คุณจรัส ศรีฟุ้ง</li>
+                    </ul>
+                </div>
+                <div class="btn-logout"><a href="login.html"><img src="images/btn-logout.png" width="33" height="33" /></a></div>
+            </div>
+            <div class="clear"></div>  
+        </div>
+    </div>
+    <div class="clear"></div>
+    
+  	<div class="nav-menu">
+    	<div class="inside">
+        	<ul class="sf-menu" id="example">
+                <li class="management current">
+                    <a href="#"></a>
+                    <ul class="sf-submenu">
+                       <li>
+                            <a href="searchBranch.html">การจัดการสาขา</a>
+                        </li>
+                         <li>
+                            <a href="searchPrefix.html">การจัดการคำนำหน้า</a>
+                        </li>
+                        <li>
+                            <a href="searchUser.html">การจัดการผู้ใช้งาน</a>
+                        </li>
+                         <li>
+                            <a href="changePassword.html">Change Password</a>
+                        </li>
+                        <li class="current">
+                            <a href="#">การจัดการกลุ่มเกษตรกร</a>
+                            <ul>
+                                <li><a href="searchFarmerGroup.html">สร้างกลุ่มเกษตรกร</a></li>
+                                <li><a href="searchFarmerGroupAddress.html">การจัดรูปแบบกลุ่มเกษตรกร</a></li>
+                            </ul>
+                        </li>
+                        
+                    </ul>
+                </li>
+               <li class="agriculture">
+                	<a href="#"></a>
+                	 <a href="#"></a>
+                    <ul class="sf-submenu">
+                       <li>
+                            <a href="plant.html">ข้อมูลการเพาะปลูก</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="report"><a href="#"></a></li>
+			</ul>
+            <ul></ul>
+        </div>    	
+    </div>
+    <div class="clear"></div>
+    
+    <div class="navigator">
+    	<div class="inside">
+            <ul>
+                <li>หน้าหลัก</li>
+                <li><img src="images/arrow-navigator.png" width="4" height="8" /></li>
+                <li>กรอกข้อมูล</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- content -->
+    <div class="content">
+    	<img src="images/prefixEdit.jpg" usemap="#prefixEdit">
+    
+    <!--footer -->
+    </img><map name="prefixEdit">
+	<area shape="rect" href="searchPrefix.html" coords="666,208,780,234" />
+	<area shape="rect" href="searchPrefix.html" coords="549,207,662,235" />
+	<area shape="default" nohref="nohref" />
+</map>
+<div class="container-footer">
+    	<div class="line-footer"></div>
+        <div class="clear"></div>
+        <div class="footer">
+        	<div class="inside">
+        		<div class="copyright">2014 สงวนลิขสิทธิ์ 2557 ธนาคารเพื่อการเกษตรและสหกรณ์การเกษตร (ธ.ก.ส.)</div>
+            	<div class="logo-footer"><img src="images/logo-footer.png" width="215" height="32" /></div>
+            </div>
+        </div>
+    </div>
+    
+    
+</div>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+.month {
+	background-color: #d7def0;
+	font:bold 18px TH Sarabun New;
+}
+
+.month a {
+	color: #000099;
+}
+
+.daysofweek {
+	background-color: #d7def0;
+	font:18px TH Sarabun New;
+	text-align: center
+}
+
+.weekend {
+	background-color: #d9dadc;
+	font:18px TH Sarabun New;
+	cursor: pointer
+}
+
+.weekday {
+	background-color: #f0f0f0;
+	font:18px TH Sarabun New;
+	cursor: pointer	
+}
+
+.empty {
+	background-color: #f0f0f0;
+	font:18px TH Sarabun New;
+}
+
+.selected {
+	background-color: #0080ff;
+	font:bold 18px TH Sarabun New;
+	cursor: pointer;
+	color: silver;
+}
+
+.current {
+	background-color: #f0f0f0;	
+	font:18px TH Sarabun New;
+	cursor: pointer;
+	color: #0080ff
+}

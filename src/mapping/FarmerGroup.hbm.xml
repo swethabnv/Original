@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wsndata.data">
+	<class name="FarmerGroup" table="FarmerGroup">
+	   <id name="farmerGroupId" column="FarmerGroupId">
+		   <generator class="identity" />
+	   </id>
+       <property name="farmerGroupName" column="FarmerGroupName" />   
+       <property name="lastUpdateDate" column="LastUpdateDate" />     
+       <property name="lastUpdateBy" column="LastUpdateBy" />
+       <property name="branchCode" column="BranchCode" />
+       <property name="target" column="Target" />
+       <property name="farmerGroupType" column="FarmerGroupType" />
+       <property name="objective" column="Objective" />
+       <property name="addressNo" column="AddressNo" />
+       <property name="moo" column="Moo" />
+       <property name="village" column="Village" />
+       <property name="soi" column="Soi" />
+       <property name="road" column="Road" />
+       <property name="mobile" column="Mobile" />
+       <property name="tel" column="Tel" />
+       <property name="fax" column="Fax" />
+       <property name="createDate" column="CreateDate" />
+       <property name="createBy" column="CreateBy" />
+       
+		 <set name="farmerGroupAddress" table="FarmerGroupAddress" cascade="all" fetch="subselect" lazy="false" >
+              <key>
+              	<column name="FarmerGroupId" />
+              </key>
+              <one-to-many class="FarmerGroupAddress" />
+         </set>
+         
+		 <set name="farmerGroupFarmer" table="FarmerGroupFarmer" cascade="all" fetch="subselect" lazy="false" >
+              <key>
+              	<column name="FarmerGroupId" />
+              </key>
+              <one-to-many class="FarmerGroupFarmer" />
+         </set>
+         
+		 <set name="farmerGroupChild" table="FarmerGroupChild" cascade="all" fetch="subselect" lazy="false" >
+              <key>
+              	<column name="FarmerGroupId" />
+              </key>
+              <one-to-many class="FarmerGroupChild" />
+         </set>
+         
+		 <list name="farmerGroupTeam" table="FarmerGroupTeam" cascade="all" fetch="subselect" lazy="false" >
+              <key update="false">
+              	<column name="FarmerGroupId" />
+              </key>
+              <index column="FarmerGroupTeamId"/>
+              <one-to-many class="FarmerGroupTeam" />
+         </list>
+
+ 	</class>
+</hibernate-mapping>

@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="r012_subreport_landright" language="groovy" pageWidth="535" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="ef4163be-dd86-461f-9bbc-754a58ad94cd">
+	<property name="ireport.zoom" value="1.2968712300500012"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<parameter name="ID_CARD" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="LAND_PROVINCE" class="java.lang.Long" isForPrompting="false"/>
+	<parameter name="PLANT_OBJECTIVE" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="IN_MANUFACTURE" class="java.lang.Integer" isForPrompting="false"/>
+	<parameter name="IN_BREEDTYPE" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="IN_SEASON" class="java.lang.Integer" isForPrompting="false"/>
+	<parameter name="IN_YEAR" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT lr.DocNo,
+lt.TypeName,
+floor((pd.PlantRai + ((pd.PlantNgan + (pd.PlantWah / 100)) / 4))) AS PlantRai,
+floor(((pd.PlantNgan + (pd.PlantWah / 100)) % 4)) AS PlantNgan,
+(pd.PlantWah % 100) AS PlantWah,
+ concat((case ifnull(lr.AddressNo, '')
+        when '' then '' else lr.AddressNo end),
+        '  หมู่ ', lr.Moo, ' ต. ', pvd.SubDistrictThai,
+        ' อ. ', pvd.DistrictThai, ' จ. ', pvd.ProvinceThai) AS LandRightAddress,
+pd.BreedGroupId AS BreedGroupId,
+        bg.BreedGroupName AS BreedGroupName,
+	p.Season,
+ 	bt.BreedTypeName
+FROM plant p
+
+left join plantdetail pd on p.PlantId = pd.PlantId
+            and p.BreedTypeId = pd.BreedTypeId
+left join landright lr ON lr.PlantId = p.PlantId
+            and lr.DocNo = pd.DocNo
+left join farmer f ON f.IdCard = p.IdCard
+            and f.EffectiveDate = p.EffectiveDate
+left join breedgroup bg ON bg.BreedGroupId = pd.BreedGroupId
+            and bg.BreedTypeId = pd.BreedTypeId
+left join breedtype bt on bt.BreedTypeId = bg.BreedTypeId
+left join provincedistrict pvd on pvd.DistrictNo = lr.DistrictNo
+and pvd.SubDistrictNo = lr.SubDistrictNo
+and pvd.ProvinceNo = lr.ProvinceNo
+
+join landrighttype lt on lt.TypeId = lr.TypeId
+join sellingdetail s ON s.PlantId = pd.PlantId
+            and s.BreedTypeId = pd.BreedTypeId
+            and s.BreedGroupId = pd.BreedGroupId
+            and s.DocNo = pd.DocNo
+            and s.TypeId = pd.TypeId
+            and s.SEQ = pd.SEQ
+    where
+        ((p.Flag <> 'D')
+            and p.CreateDate in (select
+                max(p2.CreateDate)
+            from
+                plant p2
+            where
+                (p2.RefPlantId = p.RefPlantId)
+            group by p2.RefPlantId , date_format(p2.CreateDate, '%Y%m%d')))
+and f.IdCard = $P{ID_CARD}
+and CASE $P{LAND_PROVINCE} WHEN 0 THEN 1 ELSE pvd.ProvinceNo = $P{LAND_PROVINCE} END
+AND CASE IFNULL($P{PLANT_OBJECTIVE}, '')
+WHEN 1 THEN pd.PlantObjective = 'เพื่อบริโภค'
+WHEN 2 THEN pd.PlantObjective like '%เพื่อทำเมล็ดพันธุ์%'
+WHEN 3 THEN pd.PlantObjective = 'เพื่อบริโภค' OR plantObjective like '%เพื่อทำเมล็ดพันธุ์%'
+ELSE pd.PlantObjective IS NOT NULL END
+AND CASE IFNULL($P{IN_MANUFACTURE}, '')
+WHEN 1 THEN pd.Qualification = 'เกษตรอินทรีย์แท้'
+WHEN 2 THEN pd.Qualification = 'เกษตรอินทรีย์'
+WHEN 3 THEN pd.Qualification IN ('เกษตรอินทรีย์แท้', 'เกษตรอินทรีย์')
+WHEN 4 THEN pd.Qualification = 'เกษตรทั่วไป'
+WHEN 5 THEN pd.Qualification IN ('เกษตรอินทรีย์แท้', 'เกษตรทั่วไป')
+WHEN 6 THEN pd.Qualification IN ('เกษตรอินทรีย์', 'เกษตรทั่วไป')
+WHEN 7 THEN pd.Qualification IN ('เกษตรอินทรีย์แท้', 'เกษตรอินทรีย์', 'เกษตรทั่วไป')
+ELSE pd.Qualification IS NOT NULL END
+AND CASE IFNULL($P{IN_BREEDTYPE}, '')
+WHEN 'ข้าว' THEN (
+CASE IFNULL($P{IN_SEASON}, '')
+WHEN 1 THEN p.PlantNo = 1
+WHEN 2 THEN p.PlantNo = 2
+WHEN 3 THEN p.PlantNo IN (1, 2) END
+) AND bt.breedTypeName = 'ข้าว'
+WHEN '' THEN p.PlantNo IS NOT NULL
+ELSE bt.breedTypeName = $P{IN_BREEDTYPE} END
+AND p.PlantYear = $P{IN_YEAR}
+group by lr.DocNo]]>
+	</queryString>
+	<field name="DocNo" class="java.lang.String"/>
+	<field name="PlantRai" class="java.lang.Long"/>
+	<field name="PlantNgan" class="java.lang.Long"/>
+	<field name="PlantWah" class="java.lang.Long"/>
+	<field name="LandRightAddress" class="java.lang.String"/>
+	<field name="BreedGroupName" class="java.lang.String"/>
+	<field name="TypeName" class="java.lang.String"/>
+	<field name="Season" class="java.lang.String"/>
+	<variable name="SUM_RAI" class="java.lang.Integer" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{PlantRai}]]></variableExpression>
+	</variable>
+	<variable name="SUM_NGAN" class="java.lang.Integer" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{PlantNgan}]]></variableExpression>
+	</variable>
+	<variable name="SUM_WAH" class="java.lang.Integer" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{PlantWah}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+				<reportElement key="textField" stretchType="RelativeToBandHeight" x="46" y="0" width="107" height="30" uuid="3980ce53-8250-4f37-8640-0f10e60cf8a4"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TypeName}+" / "+$F{DocNo}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" stretchType="RelativeToBandHeight" x="0" y="0" width="46" height="30" uuid="0c230217-6d73-48ed-adb0-c1560ab9b62e"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" stretchType="RelativeToBandHeight" x="153" y="0" width="106" height="30" uuid="c6e8f9ba-089a-4b4c-9f31-0f1b763e065e"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PlantRai}+'-'+$F{PlantNgan}+'-'+$F{PlantWah}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+				<reportElement key="textField-1" stretchType="RelativeToBandHeight" x="259" y="0" width="166" height="30" uuid="4b52b662-e2c7-4b65-8ba7-39f96bb2161a"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{LandRightAddress}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" stretchType="RelativeToBandHeight" x="425" y="0" width="110" height="30" uuid="b074e8f3-1a81-4d3c-9033-264acbf8495b"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BreedGroupName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="30" splitType="Stretch">
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" x="153" y="0" width="106" height="30" uuid="73858ae5-7d5f-45bd-9cba-b1073ab0ab0e"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{SUM_RAI}+'-'+$V{SUM_NGAN}+'-'+$V{SUM_WAH}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText" x="0" y="0" width="153" height="30" uuid="d71cf6d8-b91c-4843-a824-8b55ec678bc1"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12" isBold="true" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[รวมพื้นที่เพาะปลูก]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-1" x="259" y="0" width="166" height="30" uuid="5db56693-5a1e-4dcb-9c7e-b06294db6128"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12" isBold="true" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-2" x="425" y="0" width="110" height="30" uuid="b8f261a1-ae2e-4c57-924a-20abaee92172"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12" isBold="true" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

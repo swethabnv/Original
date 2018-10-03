@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wsndata.data">
+	<class name="ProvinceDistrict" table="ProvinceDistrict">
+		<composite-id>
+			<key-property name="regionNo" column="RegionNo" />
+			<key-property name="provinceNo" column="ProvinceNo" />
+			<key-property name="districtNo" column="DistrictNo" />
+			<key-property name="subDistrictNo" column="SubDistrictNo" />
+		</composite-id> 
+		<property name="regionName" column="RegionName" />
+        <property name="provinceThai" column="ProvinceThai" />   
+        <property name="provinceEng" column="ProvinceEng" />     
+        <property name="districtThai" column="DistrictThai" />
+        <property name="districtEng" column="DistrictEng" />
+        <property name="subDistrictThai" column="SubDistrictThai" />     
+        <property name="subDistrictEng" column="SubDistrictEng" />
+        <property name="postCode" column="PostCode" />
+
+        
+ 	</class>
+</hibernate-mapping>

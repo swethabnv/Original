@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wsndata.data">
+	<class name="BreedGroup" table="BreedGroup">
+		<composite-id>
+			<key-property name="breedTypeId" column="BreedTypeId" />
+			<key-property name="breedGroupId" column="BreedGroupId" /> 
+		</composite-id> 
+		<property name="breedGroupName" column="BreedGroupName" />
+		<property name="period" column="Period" />
+		<property name="plantPeriodFrom" column="PlantPeriodFrom" />
+		<property name="plantPeriodTo" column="PlantPeriodTo" />
+		<property name="forcastPeriodFrom" column="ForcastPeriodFrom" />
+		<property name="forcastPeriodTo" column="ForcastPeriodTo" />
+        <property name="lastUpdateDate" column="LastUpdateDate" />     
+        <property name="lastUpdateBy" column="LastUpdateBy" />
+        <property name="breedCategory" column="BreedCategory" />
+        
+        <many-to-one name="breedType" class="BreedType" lazy="false" fetch="join" insert="false" update="false">
+             <column name="BreedTypeId" />
+        </many-to-one>
+ 	</class>
+</hibernate-mapping>

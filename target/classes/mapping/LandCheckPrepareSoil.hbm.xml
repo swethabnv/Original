@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wsndata.data">
+	<class name="LandCheckPrepareSoil" table="LandCheckPrepareSoil">
+		<id name="landCheckSoilId" column="LandCheckSoilId">
+		   <generator class="identity" />
+	    </id>
+		
+        <property name="landCheckId" column="LandCheckId" />
+        <property name="seq" column="SEQ" />
+        <property name="checkDate" column="CheckDate" />
+        
+        <property name="soilType" column="SoilType" />
+        <property name="sourceWater" column="SourceWater" />
+		<property name="operate" column="Operate" />
+		<property name="operateOther" column="OperateOther" />
+        
+        <property name="result" column="Result"/>
+        <property name="remark" column="Remark"/>
+        <property name="checker" column="Checker"/>
+    
+		<!--  many FarmerGroupTeam to 1 FarmerGroup -->
+        <many-to-one name="landCheck" class="LandCheck" insert="false" update="false" lazy="false" fetch="join">
+			<column name="LandCheckId" />
+		</many-to-one>
+    
+ 	</class>
+</hibernate-mapping>

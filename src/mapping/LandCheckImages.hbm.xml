@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wsndata.data">
+	<class name="LandCheckImages" table="LandCheckImages">
+		<id name="imageId" column="ImageId">
+			 <generator class="identity" />
+		</id>
+		<property name="imageName" column="ImageName" />
+		<property name="imageBlob" column="ImageBlob" />
+		<property name="contentType" column="ContentType" />
+		<property name="landCheckId" column="LandCheckId" />
+		<property name="seq" column="SEQ" />
+
+ 	</class>
+</hibernate-mapping>

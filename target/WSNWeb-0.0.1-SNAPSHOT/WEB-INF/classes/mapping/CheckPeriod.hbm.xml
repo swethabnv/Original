@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wsndata.data">
+	<class name="CheckPeriod" table="CheckPeriod">
+		<id name="checkPeriodId" column="CheckPeriodId">
+			 <generator class="identity" />
+		</id>
+		<property name="description" column="Description" />
+		
+        <set name="mixedBreedType" table="PeriodMixedBreed" cascade="none" lazy="true">
+			<key column="checkPeriodId" not-null="true"/>
+			<many-to-many column="mixedBreedTypeId" class="MixedBreedType"/>
+		</set>
+ 	</class>
+</hibernate-mapping>

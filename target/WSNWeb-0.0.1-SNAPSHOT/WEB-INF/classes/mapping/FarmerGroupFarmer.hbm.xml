@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wsndata.data">
+	<class name="FarmerGroupFarmer" table="FarmerGroupFarmer">
+	   <composite-id>
+			<key-property name="farmerGroupId" column="FarmerGroupId" />
+			<key-property name="idCard" column="IdCard" />
+			<key-property name="effectiveDate" column="EffectiveDate" />
+		</composite-id> 
+		
+		  <!--  many FarmerGroupAddress to 1 FarmerGroup -->
+         <many-to-one name="farmerGroup" class="FarmerGroup" insert="false" update="false" lazy="false" fetch="join">
+			 <column name="FarmerGroupId" />
+		 </many-to-one>
+		 
+		  <!--  many Farmer to FarmerGroup -->
+         <many-to-one name="farmer" class="Farmer" insert="false" update="false" lazy="false" fetch="join">
+			 <column name="IdCard" />
+			 <column name="EffectiveDate" />
+		 </many-to-one>
+        
+		
+ 	</class>
+</hibernate-mapping>

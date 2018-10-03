@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wsndata.data">
+	<class name="Buyer" table="Buyer">
+		<id name="buyerId" column="BuyerId">
+			  <generator class="identity" />
+		</id>   
+      	<property name="buyerName" column="BuyerName" />
+        <property name="regionNo" column="RegionNo" />
+        <property name="provinceNo" column="ProvinceNo" />     
+        <property name="districtNo" column="DistrictNo" />
+        <property name="subDistrictNo" column="SubDistrictNo" />        
+        <property name="lastUpdateDate" column="lastUpdateDate" />
+        <property name="lastUpdateBy" column="lastUpdateBy" />  
+
+        <property name="addressNo" column="AddressNo" />
+        <property name="moo" column="Moo" />
+        <property name="soi" column="Soi" />
+        <property name="road" column="Road" />
+        <property name="mobile" column="Mobile" />
+        <property name="tel" column="Tel" />
+        <property name="fax" column="Fax" />
+        <property name="placeName" column="PlaceName" />
+        <property name="placeAddressNo" column="PlaceAddressNo" />
+        <property name="placeMoo" column="PlaceMoo" />
+        <property name="placeSoi" column="PlaceSoi" />
+        <property name="placeRoad" column="PlaceRoad" />
+        <property name="placeRegionNo" column="PlaceRegionNo" />
+        
+        <property name="placeProvinceNo" column="PlaceProvinceNo" />
+        <property name="placeDistrictNo" column="PlaceDistrictNo" />
+        <property name="placeSubDistrictNo" column="PlaceSubDistrictNo" />
+        <property name="breedTypeId" column="BreedTypeId" />
+        <property name="breedGroupId" column="BreedGroupId" />
+        <property name="qualification" column="Qualification" />
+        <property name="quantity" column="Quantity" />
+        <property name="paymentCondition" column="PaymentCondition" />
+ 	</class>
+</hibernate-mapping>

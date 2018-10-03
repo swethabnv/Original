@@ -1,0 +1,157 @@
+.windowsTopLeft {
+	height: 22px;
+	width: 3px;
+	background-image: url("../images/windowsTopLeft.gif");
+	background-repeat: no-repeat;
+	background-color: #f4f4f4
+}
+
+.windowsTop {
+	height: 22px;
+	padding-left: 8px;
+	background-image: url("../images/windowsTop.gif");
+	background-repeat: repeat-x;
+	background-color: #f4f4f4
+}
+
+.windowsActiveTabs {
+	height: 22px;
+	padding-left: 8px;
+	background-image: url("../images/windowsActiveTabs.gif");
+	background-repeat: repeat-x;
+	background-color: #f4f4f4
+}
+
+.windowsTopNull {
+	height: 22px;
+	padding-left: 8px;
+	background-image: url("../images/windowsTopNull.gif");
+	background-repeat: repeat-x;
+	background-color: #f4f4f4
+}
+
+.windowsTopRightNull {
+	height: 22px;
+	width: 3px;;
+	background-image: url("../images/windowsTopRightNull.gif");
+	background-repeat: repeat-y;
+	background-color: #f4f4f4
+}
+
+.windowsTopRight {
+	height: 22px;
+	width: 3px;
+	background-image: url("../images/windowsTopRight.gif");
+	background-repeat: no-repeat;
+	background-color: #f4f4f4
+}
+
+.windowsLeft {
+	width: 3px;;
+	background-image: url("../images/windowsLeft.gif");
+	background-repeat: repeat-y;
+	background-color: #f4f4f4
+}
+
+.windowsRight {
+	width: 3px;;
+	background-image: url("../images/windowsRight.gif");
+	background-repeat: repeat-y;
+	background-color: #f4f4f4
+}
+
+.windows {
+	line-height: 16px;;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
+	overflow: auto
+}
+
+.windowsBottomLeft {
+	height: 2px;
+	width: 3px;;
+	background-image: url("../images/windowsBottomLeft.gif");
+	background-repeat: no-repeat;
+	background-color: #f4f4f4
+}
+
+.windowsBottom {
+	height: 2px;;
+	background-image: url("../images/windowsBottom.gif");
+	background-repeat: repeat-x;
+	background-color: #f4f4f4
+}
+
+.windowsBottomRight {
+	height: 2px;
+	width: 3px;;
+	background-image: url("../images/windowsBottomRight.gif");
+	background-repeat: no-repeat;
+	background-color: #f4f4f4
+}
+
+.windowsNoTopLeft {
+	height: 2px;
+	width: 3px;
+	background-image: url("../images/windowsNoTopLeft.gif");
+	background-repeat: no-repeat;
+	background-color: #f4f4f4
+}
+
+.windowsNoTop {
+	height: 2px;
+	padding-left: 8px;
+	background-image: url("../images/windowsNoTop.gif");
+	background-repeat: repeat-x;
+	background-color: #f4f4f4
+}
+
+.windowsNoTopRight {
+	height: 2px;
+	width: 3px;
+	background-image: url("../images/windowsNoTopRight.gif");
+	background-repeat: no-repeat;
+	background-color: #f4f4f4
+}
+
+.actionTop {
+	height: 22px;
+	background-image: url("../images/actionTop.gif");
+	background-repeat: repeat-x;
+	background-color: #f4f4f4;
+	text-align: center
+}
+
+.actionActiveTabs {
+	height: 22px;
+	background-image: url("../images/actionActiveTabs.gif");
+	background-repeat: repeat-x;
+	background-color: #f4f4f4;
+	text-align: center
+}
+
+.actionTopNull {
+	height: 22px;
+	padding-left: 8px;
+	background-image: url("../images/actionTopNull.gif");
+	background-repeat: repeat-x;
+	background-color: #f4f4f4
+}
+
+.actionTopRight {
+	height: 22px;
+	width: 3px;
+	background-image: url("../images/actionTopRight.gif");
+	background-repeat: no-repeat;
+	background-color: #f4f4f4
+}
+
+.actionTopLeft {
+	height: 22px;
+	width: 3px;
+	background-image: url("../images/actionTopLeft.gif");
+	background-repeat: no-repeat;
+	background-color: #f4f4f4
+}

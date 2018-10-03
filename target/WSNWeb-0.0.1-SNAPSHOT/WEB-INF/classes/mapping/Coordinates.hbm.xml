@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wsndata.data">
+	<class name="Coordinates" table="Coordinates">
+		<id name="coordinatesId" column="CoordinatesId">
+			 <generator class="identity" />
+		</id>
+		<property name="latitude" column="Latitude" />
+		<property name="longitude" column="Longitude" />
+        <property name="seq" column="SEQ" />
+        <property name="plantYear" column="PlantYear" />
+        <property name="plantNo" column="PlantNo" />
+        <property name="idCard" column="IdCard" />
+        <property name="typeId" column="TypeId" />
+        <property name="docNo" column="DocNo" />
+        <property name="breedTypeId" column="BreedTypeId" />
+
+ 	</class>
+</hibernate-mapping>

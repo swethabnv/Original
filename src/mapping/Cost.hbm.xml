@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wsndata.data">
+	<class name="Cost" table="Cost">
+		<id name="costId" column="CostId">
+			 <generator class="identity" />
+		</id>
+		<property name="costName" column="CostName" />
+        <property name="lastUpdateDate" column="LastUpdateDate" />   
+        <property name="lastUpdateBy" column="LastUpdateBy" />
+        
+        <!--     
+        <list name="costDetail" table="CostDetail" cascade="all" fetch="subselect" lazy="false">
+               <key update="false" >
+                 <column name="CostId" />
+              </key>      
+            	<index column="SEQ"/>
+          		<one-to-many class="CostDetail" />
+       	 </list>
+ 	-->
+ 	</class>
+</hibernate-mapping>

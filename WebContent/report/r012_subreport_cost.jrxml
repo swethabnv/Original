@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="r012_subreport_cost" language="groovy" pageWidth="535" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="fad66df9-5eff-462f-8054-1b5a9a9b20b8">
+	<property name="ireport.zoom" value="0.8857805000000005"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<parameter name="ID_CARD" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="LAND_PROVINCE" class="java.lang.Long" isForPrompting="false"/>
+	<parameter name="IN_OBJECTIVE" class="java.lang.Integer" isForPrompting="false"/>
+	<parameter name="IN_MANUFACTURE" class="java.lang.Integer" isForPrompting="false"/>
+	<parameter name="IN_SEASON" class="java.lang.Integer" isForPrompting="false"/>
+	<parameter name="IN_BREEDTYPE" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="IN_YEAR" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select A.IdCard, A.costId, sum(A.CostAmount)as CostAmount, A.PlantId, A.DocNo, A.ProvinceNo, A.CostName, C.SumRai, C.SumNgan, C.SumWah, A.PlantObjective, A.Qualification, A.PlantNo, A.BreedTypeName, A.PlantYear
+from(
+SELECT IdCard, costId, CostAmount, PlantId, DocNo, ProvinceNo, CostName, PlantRai, PlantNgan, PlantWah, PlantObjective, Qualification, PlantNo, BreedTypeName, PlantYear from r012_cost
+where CostAmount is not null and IdCard = $P{ID_CARD}
+group by  DocNo, CostId) A
+
+left join (select B.IdCard, sum(B.PlantRai) as SumRai, sum(B.PlantNgan) as SumNgan, sum(B.PlantWah) as SumWah
+from
+	(SELECT IdCard, DocNo, ProvinceNo, PlantRai, PlantNgan, PlantWah, PlantObjective, Qualification, PlantNo, BreedTypeName FROM r012_cost
+	 group by IdCard, DocNo) B
+
+Group by B.IdCard) C on c.IdCard = A.IdCard
+
+where A.IdCard = $P{ID_CARD} and A.PlantYear = $P{IN_YEAR}
+AND CASE $P{LAND_PROVINCE} WHEN 0 THEN 1 ELSE ProvinceNo = $P{LAND_PROVINCE} END
+AND CASE IFNULL($P{IN_OBJECTIVE}, '')
+WHEN 1 THEN PlantObjective = 'เพื่อบริโภค'
+WHEN 2 THEN PlantObjective like '%เพื่อทำเมล็ดพันธุ์%'
+WHEN 3 THEN PlantObjective = 'เพื่อบริโภค' OR PlantObjective like '%เพื่อทำเมล็ดพันธุ์%'
+ELSE PlantObjective IS NOT NULL END
+AND CASE IFNULL($P{IN_MANUFACTURE}, '')
+WHEN 1 THEN Qualification = 'เกษตรอินทรีย์แท้'
+WHEN 2 THEN Qualification = 'เกษตรอินทรีย์'
+WHEN 3 THEN Qualification IN ('เกษตรอินทรีย์แท้', 'เกษตรอินทรีย์')
+WHEN 4 THEN Qualification = 'เกษตรทั่วไป'
+WHEN 5 THEN Qualification IN ('เกษตรอินทรีย์แท้', 'เกษตรทั่วไป')
+WHEN 6 THEN Qualification IN ('เกษตรอินทรีย์', 'เกษตรทั่วไป')
+WHEN 7 THEN Qualification IN ('เกษตรอินทรีย์แท้', 'เกษตรอินทรีย์', 'เกษตรทั่วไป')
+ELSE Qualification IS NOT NULL END
+AND CASE IFNULL($P{IN_BREEDTYPE}, '')
+WHEN 'ข้าว' THEN (
+CASE IFNULL($P{IN_SEASON}, '')
+WHEN 1 THEN PlantNo = 1
+WHEN 2 THEN PlantNo = 2
+WHEN 3 THEN PlantNo IN (1, 2) END
+) AND BreedTypeName = 'ข้าว'
+WHEN '' THEN PlantNo IS NOT NULL
+ELSE BreedTypeName = $P{IN_BREEDTYPE} END
+group by A.CostId, A.IdCard]]>
+	</queryString>
+	<field name="IdCard" class="java.lang.String"/>
+	<field name="DocNo" class="java.lang.String"/>
+	<field name="PlantId" class="java.lang.Integer"/>
+	<field name="CostId" class="java.lang.Integer"/>
+	<field name="CostName" class="java.lang.String"/>
+	<field name="CostAmount" class="java.math.BigDecimal"/>
+	<field name="SumRai" class="java.lang.Long"/>
+	<field name="SumNgan" class="java.lang.Long"/>
+	<field name="SumWah" class="java.lang.Long"/>
+	<variable name="SUM_COST" class="java.math.BigDecimal" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{CostAmount}]]></variableExpression>
+	</variable>
+	<variable name="SUM_COST_PER_RAI" class="java.math.BigDecimal" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[($F{CostAmount}/(($F{SumRai}*400)+($F{SumNgan}*100)+($F{SumWah})))*400]]></variableExpression>
+	</variable>
+	<variable name="SUM_AREA_IN_WAH" class="java.math.BigDecimal" resetType="Page">
+		<variableExpression><![CDATA[($F{SumRai}*400)+($F{SumNgan}*100)+($F{SumWah})]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField pattern="#,##0.00" isBlankWhenNull="false">
+				<reportElement key="textField" stretchType="RelativeToBandHeight" x="298" y="0" width="125" height="20" uuid="e7125ac4-0c06-4e00-82a0-2694800b8dde"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CostAmount}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-1" stretchType="RelativeToBandHeight" x="0" y="0" width="46" height="20" uuid="2e77a829-c35e-4d3b-bf78-d4f077f6fe88"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" stretchType="RelativeToBandHeight" x="46" y="0" width="252" height="20" uuid="703f89b8-68a2-45b3-a38b-ba381c5bf48b"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CostName}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="false">
+				<reportElement key="textField" stretchType="RelativeToBandHeight" x="423" y="0" width="112" height="20" uuid="32bf21f0-b0f1-48c6-b511-95f2f9309cc2"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{CostAmount}/(($F{SumRai}*400)+($F{SumNgan}*100)+($F{SumWah})))*400]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement key="staticText-1" x="0" y="0" width="298" height="20" uuid="e551720f-2ad5-40d0-9930-e8bb6b9eefe1"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12" isBold="true" pdfFontName="THSarabunNew.ttf"/>
+				</textElement>
+				<text><![CDATA[รวมต้นทุนค่าใช้จ่าย]]></text>
+			</staticText>
+			<textField evaluationTime="Page" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement key="textField" x="298" y="0" width="125" height="20" uuid="24807956-8937-430a-8f6a-6c641e1b55b8"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{SUM_COST}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Page" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement key="textField" x="423" y="0" width="112" height="20" uuid="63820c91-8425-47fc-bcf9-cc1c4073afa3"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{SUM_COST_PER_RAI}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

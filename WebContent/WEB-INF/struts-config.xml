@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "struts-config_1_3.dtd">
+<struts-config>
+
+	<form-beans>
+		<form-bean name="LoginForm" type="com.wsnweb.form.LoginForm">
+		</form-bean>
+		<form-bean name="UserListForm" type="com.wsnweb.form.UserListForm">
+		</form-bean>
+		<form-bean name="UserForm" type="com.wsnweb.form.UserForm">
+		</form-bean>
+		<form-bean name="BranchForm" type="com.wsnweb.form.BranchForm">
+		</form-bean>
+		<form-bean name="BranchListForm" type="com.wsnweb.form.BranchListForm">
+		</form-bean>
+		<form-bean name="RegionListForm" type="com.wsnweb.form.RegionListForm">
+		</form-bean>
+		<form-bean name="RegionForm" type="com.wsnweb.form.RegionForm">
+		</form-bean>
+		<form-bean name="ProvinceListForm" type="com.wsnweb.form.ProvinceListForm">
+		</form-bean>
+		<form-bean name="ProvinceForm" type="com.wsnweb.form.ProvinceForm">
+		</form-bean>
+		<form-bean name="DistrictListForm" type="com.wsnweb.form.DistrictListForm">
+		</form-bean>
+		<form-bean name="DistrictForm" type="com.wsnweb.form.DistrictForm">
+		</form-bean>
+		<form-bean name="SubDistrictListForm" type="com.wsnweb.form.SubDistrictListForm">
+		</form-bean>
+		<form-bean name="SubDistrictForm" type="com.wsnweb.form.SubDistrictForm">
+		</form-bean>
+		<form-bean name="PrefixForm" type="com.wsnweb.form.PrefixForm">
+		</form-bean>
+		<form-bean name="PrefixListForm" type="com.wsnweb.form.PrefixListForm">
+		</form-bean>
+		<form-bean name="FarmerGroupForm" type="com.wsnweb.form.FarmerGroupForm">
+		</form-bean>
+		<form-bean name="FarmerGroupListForm" type="com.wsnweb.form.FarmerGroupListForm">
+		</form-bean>
+		<form-bean name="AccessControlListForm" type="com.wsnweb.form.AccessControlListForm">
+		</form-bean>
+		<form-bean name="EconomicBreedForm" type="com.wsnweb.form.EconomicBreedForm">
+		</form-bean>
+		<form-bean name="EconomicBreedListForm" type="com.wsnweb.form.EconomicBreedListForm">
+		</form-bean>
+		<form-bean name="BreedTypeForm" type="com.wsnweb.form.BreedTypeForm">
+		</form-bean>
+		<form-bean name="BreedTypeListForm" type="com.wsnweb.form.BreedTypeListForm">
+		</form-bean>
+		<form-bean name="BreedGroupForm" type="com.wsnweb.form.BreedGroupForm">
+		</form-bean>
+		<form-bean name="BreedGroupListForm" type="com.wsnweb.form.BreedGroupListForm">
+		</form-bean>
+		<form-bean name="PlantForm" type="com.wsnweb.form.PlantForm">
+		</form-bean>
+		<form-bean name="CostForm" type="com.wsnweb.form.CostForm">
+		</form-bean>
+		<form-bean name="CostListForm" type="com.wsnweb.form.CostListForm">
+		</form-bean>
+		<form-bean name="AssetForm" type="com.wsnweb.form.AssetForm">
+		</form-bean>
+		<form-bean name="AssetListForm" type="com.wsnweb.form.AssetListForm">
+		</form-bean>
+		<form-bean name="AssetDetailForm" type="com.wsnweb.form.AssetDetailForm">
+		</form-bean>
+		<form-bean name="BuyerForm" type="com.wsnweb.form.BuyerForm">
+		</form-bean>
+		<form-bean name="BuyerListForm" type="com.wsnweb.form.BuyerListForm">
+		</form-bean>
+		<form-bean name="PlantListForm" type="com.wsnweb.form.PlantListForm">
+		</form-bean>
+		<form-bean name="ReportForm" type="com.wsnweb.form.ReportForm">
+		</form-bean>
+		<form-bean name="FarmerGroupFarmerForm" type="com.wsnweb.form.FarmerGroupFarmerForm">
+		</form-bean>
+		<form-bean name="FarmerForm" type="com.wsnweb.form.FarmerForm">
+		</form-bean>
+		<form-bean name="FarmerListForm" type="com.wsnweb.form.FarmerListForm">
+		</form-bean>
+		<form-bean name="FarmerGroupAddForm" type="com.wsnweb.form.FarmerGroupAddForm">
+		</form-bean>
+		<form-bean name="PrepareAreaForm" type="com.wsnweb.form.PrepareAreaForm">
+		</form-bean>
+		<form-bean name="PrepareAreaListForm" type="com.wsnweb.form.PrepareAreaListForm">
+		</form-bean>
+		<form-bean name="PlantMethodForm" type="com.wsnweb.form.PlantMethodForm">
+		</form-bean>
+		<form-bean name="PlantMethodListForm" type="com.wsnweb.form.PlantMethodListForm">
+		</form-bean>
+		<form-bean name="BankForm" type="com.wsnweb.form.BankForm">
+		</form-bean>
+		<form-bean name="BankListForm" type="com.wsnweb.form.BankListForm">
+		</form-bean>
+		<form-bean name="CooperativeGroupForm" type="com.wsnweb.form.CooperativeGroupForm">
+		</form-bean>
+		<form-bean name="CooperativeGroupListForm" type="com.wsnweb.form.CooperativeGroupListForm">
+		</form-bean>
+		<form-bean name="CooperativeGroupAddForm" type="com.wsnweb.form.CooperativeGroupAddForm">
+		</form-bean>
+		<form-bean name="CooperativeGroupFarmerForm" type="com.wsnweb.form.CooperativeGroupFarmerForm">
+		</form-bean>
+		<form-bean name="LandCheckForm" type="com.wsnweb.form.LandCheckForm">
+		</form-bean>
+		<form-bean name="LandCheckListForm" type="com.wsnweb.form.LandCheckListForm">
+		</form-bean>
+		<form-bean name="LandApproveListForm" type="com.wsnweb.form.LandApproveListForm">
+		</form-bean>
+		<form-bean name="CloseDueForm" type="com.wsnweb.form.CloseDueForm">
+		</form-bean>
+		<form-bean name="CloseDueListForm" type="com.wsnweb.form.CloseDueListForm">
+		</form-bean>
+	</form-beans>
+
+	<global-forwards>
+		<forward name="unauthorize" path="/Login.do">
+		</forward>
+	</global-forwards>
+
+	<action-mappings>
+		<action path="/Login" type="com.wsnweb.action.LoginAction"
+			name="LoginForm" scope="request">
+			<forward name="logon" path="/login.jsp">
+			</forward>
+			<forward name="success" path="/Blank.jsp" redirect="false">
+			</forward>
+			<forward name="changePassword" path="/password/changePassword.jsp">
+			</forward>
+		</action>
+		<action path="/UserList" type="com.wsnweb.action.UserListAction"
+			name="UserListForm" scope="request">
+			<forward name="list" path="/user/userList.jsp">
+			</forward>
+		</action>
+		<action path="/User" type="com.wsnweb.action.UserAction" name="UserForm"
+			scope="request">
+			<forward name="success" path="/user/user.jsp">
+			</forward>
+			<forward name="changePassword" path="/password/changePassword.jsp">
+			</forward>
+		</action>
+		<action path="/Branch" type="com.wsnweb.action.BranchAction"
+			name="BranchForm" scope="request">
+			<forward name="branch" path="/branch/branch.jsp">
+			</forward>
+		</action>
+		<action path="/BranchList" type="com.wsnweb.action.BranchListAction"
+			name="BranchListForm" scope="request">
+			<forward name="branchList" path="/branch/branchList.jsp">
+			</forward>
+		</action>
+		<action path="/RegionList" type="com.wsnweb.action.RegionListAction"
+			name="RegionListForm" scope="request">
+			<forward name="list" path="/region/regionList.jsp">
+			</forward>
+		</action>
+		<action path="/Region" type="com.wsnweb.action.RegionAction"
+			name="RegionForm" scope="request">
+			<forward name="region" path="/region/region.jsp">
+			</forward>
+		</action>
+		<action path="/ProvinceList" type="com.wsnweb.action.ProvinceListAction"
+			name="ProvinceListForm" scope="request">
+			<forward name="list" path="/province/provinceList.jsp">
+			</forward>
+		</action>
+		<action path="/Province" type="com.wsnweb.action.ProvinceAction"
+			name="ProvinceForm" scope="request">
+			<forward name="province" path="/province/province.jsp">
+			</forward>
+		</action>
+		<action path="/DistrictList" type="com.wsnweb.action.DistrictListAction"
+			name="DistrictListForm" scope="request">
+			<forward name="list" path="/district/districtList.jsp">
+			</forward>
+		</action>
+		<action path="/District" type="com.wsnweb.action.DistrictAction"
+			name="DistrictForm" scope="request">
+			<forward name="district" path="/district/district.jsp">
+			</forward>
+		</action>
+		<action path="/SubDistrictList" type="com.wsnweb.action.SubDistrictListAction"
+			name="SubDistrictListForm" scope="request">
+			<forward name="list" path="/subDistrict/subDistrictList.jsp">
+			</forward>
+		</action>
+		<action path="/SubDistrict" type="com.wsnweb.action.SubDistrictAction"
+			name="SubDistrictForm" scope="request">
+			<forward name="subdistrict" path="/subDistrict/subDistrict.jsp">
+			</forward>
+		</action>
+		<action path="/Prefix" type="com.wsnweb.action.PrefixAction"
+			name="PrefixForm" scope="request">
+			<forward name="prefix" path="/prefix/prefix.jsp">
+			</forward>
+		</action>
+		<action path="/PrefixList" type="com.wsnweb.action.PrefixListAction"
+			name="PrefixListForm" scope="request">
+			<forward name="prefixList" path="/prefix/prefixList.jsp">
+			</forward>
+		</action>
+		<action path="/FarmerGroup" type="com.wsnweb.action.FarmerGroupAction"
+			name="FarmerGroupForm" scope="request">
+			<forward name="farmerGroup" path="/farmerGroup/farmerGroup.jsp">
+			</forward>
+		</action>
+		<action path="/FarmerGroupList" type="com.wsnweb.action.FarmerGroupListAction"
+			name="FarmerGroupListForm" scope="request">
+			<forward name="farmerGroupList" path="/farmerGroup/farmerGroupList.jsp">
+			</forward>
+		</action>
+		<action path="/AccessControlList" type="com.wsnweb.action.AccessControlListAction"
+			name="AccessControlListForm" scope="request" unknown="false">
+			<forward name="menuList" path="/accessControl/accessControl.jsp">
+			</forward>
+		</action>
+		<action path="/EconomicBreed" type="com.wsnweb.action.EconomicBreedAction"
+			name="EconomicBreedForm" scope="request">
+			<forward name="economicBreed" path="/economicBreed/economicBreed.jsp">
+			</forward>
+		</action>
+		<action path="/EconomicBreedList" type="com.wsnweb.action.EconomicBreedListAction"
+			name="EconomicBreedListForm" scope="request">
+			<forward name="economicBreedList" path="/economicBreed/economicBreedList.jsp">
+			</forward>
+		</action>
+		<action path="/BreedType" type="com.wsnweb.action.BreedTypeAction"
+			name="BreedTypeForm" scope="request">
+			<forward name="breedType" path="/breedType/breedType.jsp">
+			</forward>
+		</action>
+		<action path="/BreedTypeList" type="com.wsnweb.action.BreedTypeListAction"
+			name="BreedTypeListForm" scope="request">
+			<forward name="breedTypeList" path="/breedType/breedTypeList.jsp">
+			</forward>
+		</action>
+		<action path="/BreedGroup" type="com.wsnweb.action.BreedGroupAction"
+			name="BreedGroupForm" scope="request">
+			<forward name="breedGroup" path="/breedGroup/breedGroup.jsp">
+			</forward>
+		</action>
+		<action path="/BreedGroupList" type="com.wsnweb.action.BreedGroupListAction"
+			name="BreedGroupListForm" scope="request">
+			<forward name="breedGroupList" path="/breedGroup/breedGroupList.jsp">
+			</forward>
+		</action>
+		<action path="/Plant" type="com.wsnweb.action.PlantAction"
+			name="PlantForm" scope="request">
+			<forward name="plant" path="/plant/plant.jsp">
+			</forward>
+			<forward name="list" path="/PlantList.do">
+			</forward>
+		</action>
+		<action path="/Cost" type="com.wsnweb.action.CostAction" name="CostForm"
+			scope="request">
+			<forward name="cost" path="/cost/cost.jsp">
+			</forward>
+		</action>
+		<action path="/CostList" type="com.wsnweb.action.CostListAction"
+			name="CostListForm" scope="request">
+			<forward name="costList" path="/cost/costList.jsp">
+			</forward>
+		</action>
+		<action path="/Asset" type="com.wsnweb.action.AssetAction"
+			name="AssetForm" scope="request">
+			<forward name="asset" path="/asset/asset.jsp">
+			</forward>
+		</action>
+		<action path="/AssetList" type="com.wsnweb.action.AssetListAction"
+			name="AssetListForm" scope="request">
+			<forward name="assetList" path="/asset/assetList.jsp">
+			</forward>
+		</action>
+		<action path="/Buyer" type="com.wsnweb.action.BuyerAction"
+			name="BuyerForm" scope="request">
+			<forward name="buyer" path="/buyer/buyer.jsp">
+			</forward>
+		</action>
+		<action path="/BuyerList" type="com.wsnweb.action.BuyerListAction"
+			name="BuyerListForm" scope="request">
+			<forward name="buyerList" path="/buyer/buyerList.jsp">
+			</forward>
+		</action>
+		<action path="/PlantList" type="com.wsnweb.action.PlantListAction"
+			name="PlantListForm" scope="request">
+			<forward name="plantList" path="/plant/plantList.jsp">
+			</forward>
+		</action>
+		<action path="/Report" type="com.wsnweb.action.ReportAction"
+			name="ReportForm" scope="request">
+			<forward name="report" path="/report/report.jsp">
+			</forward>
+		</action>
+		<action path="/FarmerGroupFarmer" type="com.wsnweb.action.FarmerGroupFarmerAction"
+			name="FarmerGroupFarmerForm" scope="request">
+			<forward name="farmerGroupFarmer" path="/farmerGroupFarmer/farmerGroupFarmer.jsp">
+			</forward>
+		</action>
+		<action path="/Farmer" type="com.wsnweb.action.FarmerAction"
+			name="FarmerForm" scope="request">
+			<forward name="farmer" path="/farmer/farmer.jsp">
+			</forward>
+		</action>
+		<action path="/FarmerList" type="com.wsnweb.action.FarmerListAction"
+			name="FarmerListForm" scope="request">
+			<forward name="farmerList" path="/farmer/farmerList.jsp">
+			</forward>
+		</action>
+		<action path="/FarmerGroupAdd" type="com.wsnweb.action.FarmerGroupAddAction"
+			name="FarmerGroupAddForm" scope="request">
+			<forward name="farmerGroupAdd" path="/farmerGroupFarmer/farmerGroupAdd.jsp">
+			</forward>
+		</action>
+		<action path="/Image" type="com.wsnweb.image.ImageVerificationAction">
+		</action>
+
+		<action path="/PrepareArea" type="com.wsnweb.action.PrepareAreaAction" name="PrepareAreaForm" scope="request">
+			<forward name="prepareArea" path="/prepareArea/prepareArea.jsp">
+			</forward>
+		</action>
+		<action path="/PrepareAreaList" type="com.wsnweb.action.PrepareAreaListAction" name="PrepareAreaListForm" scope="request">
+			<forward name="prepareAreaList" path="/prepareArea/prepareAreaList.jsp">
+			</forward>
+		</action>
+		<action path="/PlantMethod" type="com.wsnweb.action.PlantMethodAction" name="PlantMethodForm" scope="request">
+			<forward name="plantMethod" path="/plantMethod/plantMethod.jsp">
+			</forward>
+		</action>
+		<action path="/PlantMethodList" type="com.wsnweb.action.PlantMethodListAction" name="PlantMethodListForm" scope="request">
+			<forward name="plantMethodList" path="/plantMethod/plantMethodList.jsp">
+			</forward>
+		</action>
+		<action path="/Bank" type="com.wsnweb.action.BankAction" name="BankForm" scope="request">
+			<forward name="bank" path="/bank/bank.jsp">
+			</forward>
+		</action>
+		<action path="/BankList" type="com.wsnweb.action.BankListAction" name="BankListForm" scope="request">
+			<forward name="bankList" path="/bank/bankList.jsp">
+			</forward>
+		</action>
+		<action path="/CooperativeGroup" type="com.wsnweb.action.CooperativeGroupAction" name="CooperativeGroupForm" scope="request">
+			<forward name="cooperativeGroup" path="/cooperativeGroup/cooperativeGroup.jsp">
+			</forward>
+		</action>
+		<action path="/CooperativeGroupList" type="com.wsnweb.action.CooperativeGroupListAction" name="CooperativeGroupListForm" scope="request">
+			<forward name="cooperativeGroupList" path="/cooperativeGroup/cooperativeGroupList.jsp">
+			</forward>
+		</action>
+		<action path="/CooperativeGroupAdd" type="com.wsnweb.action.CooperativeGroupAddAction" name="CooperativeGroupAddForm" scope="request">
+			<forward name="cooperativeGroupAdd" path="/cooperativeGroupFarmer/cooperativeGroupAdd.jsp">
+			</forward>
+		</action>
+		<action path="/CooperativeGroupFarmer" type="com.wsnweb.action.CooperativeGroupFarmerAction" name="CooperativeGroupFarmerForm" scope="request">
+			<forward name="cooperativeGroupFarmer" path="/cooperativeGroupFarmer/cooperativeGroupFarmer.jsp">
+			</forward>
+		</action>
+		<action path="/LandCheck" type="com.wsnweb.action.LandCheckAction" name="LandCheckForm" scope="request">
+			<forward name="landCheck" path="/landCheck/landCheck.jsp">
+			</forward>
+			<forward name="detailImage" path="/landCheck/detailImagePopup.jsp">
+			</forward>
+		</action>
+		<action path="/LandCheckList" type="com.wsnweb.action.LandCheckListAction" name="LandCheckListForm" scope="request">
+			<forward name="landCheckList" path="/landCheck/landCheckList.jsp">
+			</forward>
+		</action>
+		<action path="/LandApproveList" type="com.wsnweb.action.LandApproveListAction" name="LandApproveListForm" scope="request">
+			<forward name="landApproveList" path="/landApprove/landApproveList.jsp">
+			</forward>
+			<forward name="landApproveListAction" path="/LandApproveList.do">
+			</forward>
+		</action>
+		<action path="/CloseDue" type="com.wsnweb.action.CloseDueAction" name="CloseDueForm" scope="request">
+			<forward name="closeDue" path="/closeDue/closeDue.jsp">
+			</forward>
+		</action>
+		<action path="/CloseDueList" type="com.wsnweb.action.CloseDueListAction" name="CloseDueListForm" scope="request">
+			<forward name="closeDueList" path="/closeDue/closeDueList.jsp">
+			</forward>
+		</action>
+	</action-mappings>
+
+	<message-resources parameter="corp.dcs.wsnweb.resources.ApplicationResources" />
+	<plug-in className="com.dcs.util.LoggingPlugIn">
+		<set-property property="configFilePath" value="/logger.cfg" />
+	</plug-in>
+	<plug-in className="com.dcs.util.HibernatePlugIn">
+		<set-property property="configFilePath" value="/hibernate.cfg.xml" />
+		<set-property property="storeInServletContext" value="true" />
+	</plug-in>
+</struts-config>

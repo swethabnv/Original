@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wsndata.data">
+	<class name="EconomicBreed" table="EconomicBreed">
+		<composite-id>
+			<key-property name="breedTypeId" column="BreedTypeId" />
+			<key-property name="regionNo" column="RegionNo" />
+			<key-property name="provinceNo" column="ProvinceNo" />
+		</composite-id> 
+		<property name="lastUpdateDate" column="LastUpdateDate" />     
+        <property name="lastUpdateBy" column="LastUpdateBy" />
+ 	</class>
+</hibernate-mapping>

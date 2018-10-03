@@ -1,0 +1,136 @@
+.gridHeader
+{
+	font-family: TH Sarabun New;
+	font-size: 20px;
+	font-weight: bold;
+	color: #ffffff;
+	background:url(../images/bg-gridheader.png) repeat-x;
+	text-align: left;
+}
+
+.gridRowEven
+{
+	color: #008000;
+	background-color: #ffffff;
+	font-family: TH Sarabun New;
+	font-size: 20px;
+	font-weight: normal;
+	height: 20px;
+	text-align: left;
+}
+
+.gridRowOdd
+{
+	color: #474145;
+	background-color: #ededef;
+	font-family: TH Sarabun New;
+	font-size: 20px;
+	font-weight: normal;
+	height: 20px;
+	text-align: left;
+}
+
+.gridPageOfPage
+{
+	font-family: TH Sarabun New;
+	font-size: 20px;
+	font-weight: bold;
+	color: #ffffff;
+	padding-left: 10px;
+	padding-right: 10px;
+	height: 20px;
+	text-align: right;
+	background:url(../images/bg-gridheader.png) repeat-x;
+}
+
+.gridRowOdd:hover, .gridRowEven:hover
+{
+	background-image: url("../images/bg-rowhover.png");
+}
+
+.gridRowOdd td, .gridRowEven td
+{
+	border-bottom: solid 1px #AAAAAA;
+}
+
+.gridPager
+{
+	font-family: TH Sarabun New;
+	font-size: 20px;
+	font-weight: bold;
+	color: #ffffff;
+	background:url(../images/bg-gridheader.png) repeat-x;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 3px;
+	height: 20px;
+	text-align: left;
+}
+
+.gridPager td
+{
+	padding-left: 5px;
+}
+
+.gridSort
+{
+	font-family: TH Sarabun New;
+	font-size: 20px;
+	font-weight: bold;
+	color: #ffffff;
+	text-decoration: none;
+	display: block;
+	margin-top: 3px;
+}
+
+.gridCell
+{
+	text-align: left;
+	padding-left: 10px
+}
+
+.gridCell1
+{
+	text-align: right;
+	padding-right: 10px
+}
+
+.gridCell2
+{
+	text-align: right;
+	padding-right: 5px;
+	padding-left: 5px
+}
+
+.gridCell3
+{
+	text-align: center;
+	padding-right: 5px;
+	padding-left: 5px
+}
+
+
+.gridColumn{
+	color: #575155;
+	text-align: left;
+	padding-top: 3px;
+}
+a:link {
+	color: #FFFFFF; text-decoration: none;
+	/*YOK change from 575155 to FFFFFF*/
+}
+a:visited {
+	color: #FFFFFF; text-decoration: none;
+}
+a:hover {
+	color: #FFFFFF; text-decoration: underline;
+}
+.gridRowOdd td:first-child, .gridRowEven td:first-child {
+	border-left: solid 1px #AAAAAA;
+}
+.gridRowOdd td.last-child, .gridRowEven td.last-child {
+	border-right: solid 1px #AAAAAA;
+}
+td.last-child {
+	padding-left: 5px;
+}

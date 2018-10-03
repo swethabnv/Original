@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wsndata.data">
+	<class name="LandCheckHarvest" table="LandCheckHarvest">
+		<id name="landCheckHarvestId" column="LandCheckHarvestId">
+		   <generator class="identity" />
+	    </id>
+		
+        <property name="landCheckId" column="LandCheckId" />
+        <property name="seq" column="SEQ" />
+        
+        <property name="observers" column="Observers" />
+        <property name="observeDate" column="ObserveDate" />
+		<property name="dain" column="Dain" />
+		<property name="dainRemark" column="DainRemark" />
+		<property name="dainDate" column="DainDate" />
+        <property name="harvestQuality" column="HarvestQuality" />   
+        <property name="harvestQualityDate" column="HarvestQualityDate" />
+        <property name="farmStatus" column="FarmStatus" />
+        <property name="farmStatusDate" column="FarmStatusDate" />
+        <property name="harvester" column="Harvester" />
+        <property name="harvesterDate" column="HarvesterDate" />
+        <property name="cleaning" column="Cleaning" />
+        <property name="cleaningDate" column="CleaningDate" />
+        <property name="packaging" column="Packaging" />
+        <property name="packagingDate" column="PackagingDate" />
+        <property name="moving" column="Moving" />
+        <property name="movingDate" column="MovingDate" />
+        
+        <property name="totalHarvest" column="TotalHarvest" />
+        <property name="keepHarvest" column="KeepHarvest" />
+        <property name="sell" column="Sell" />
+        <property name="salePrice" column="SalePrice" />
+        
+        <property name="result" column="Result"/>
+        <property name="remark" column="Remark"/>
+        <property name="checker" column="Checker"/>
+    
+		<!--  many FarmerGroupTeam to 1 FarmerGroup -->
+        <many-to-one name="landCheck" class="LandCheck" insert="false" update="false" lazy="false" fetch="join">
+			<column name="LandCheckId" />
+		</many-to-one>
+		
+ 	</class>
+</hibernate-mapping>

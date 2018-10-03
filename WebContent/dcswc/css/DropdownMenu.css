@@ -1,0 +1,156 @@
+.header{
+	width: 1000px; 
+	height:30px; 
+	border:1px dotted black;
+}
+.content{
+	position:relative; 
+	width: 600px; 
+	height:500px; 
+	color:white; 
+	overflow:hidden;
+	}
+.item{
+	position:absolute; 
+	top:50px; 
+	left:20px; 
+	width: 600px; 
+	height:400px; 
+	background-color: grey;
+	}
+	
+.navigation {
+            width:1000px;
+        }
+        .navigation ul{
+        /* positioning */
+        	position:relative;
+            z-index:1000;
+        /* remove the dots next to list items: */
+            list-style:none; 
+        /* get rid of any default or inherited margins and padding: */
+            margin:0; 
+            padding:0; 
+            
+        /* styling: */
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-weight: normal;
+            font-size: 12px;
+        }
+        
+        /* we're using the direct descendant selectors > to ONLY affect the main menu items */
+        .navigation > ul > li {
+        /* positioning */ 
+            position: relative;
+            float: left;
+        /* styling: */
+            margin-right: 10px;
+        }
+        .navigation > ul > li > a {
+        /* positioning */ 
+            display:block;
+        /* styling: */
+            background-color: #000000; /*  black */
+            padding:4px 7px;
+            text-decoration:none;
+            color:#000000; 
+            
+        }
+        .navigation > ul > li > a:hover{
+        /* styling: */
+            background-color:#000000; /* grey */
+            color:#000000; /* light grey */
+        }
+        
+  .navigation ul ul{
+            
+           
+            width:340px; /* you need a width to accommodate tertiary menus */
+            
+            position:absolute;
+            z-index:100;
+            
+            height: 0;
+            overflow: hidden;
+        }
+        
+
+        /* don't display tertiary box yet */
+        .navigation > ul > li:hover ul ul, .navigation > ul > li > a:hover ul ul{
+            height:0;
+            
+        }
+        /* tertiary drop-down box */
+        .navigation ul ul ul{
+            left:170px;
+            width:170px;
+        }
+        
+        .navigation > ul > li:hover ul, .navigation > ul > li > a:hover ul,
+        .navigation ul ul li:hover > ul, .navigation ul ul li a:hover > ul{
+            height:220px; /* need a height to accommodate any tertiary menus */
+        }
+        
+        /* drop-down item styles */
+        /* if you want different styling for tertiary menus, just copy the 4 rules below and insert an additional ul: for example: ".navigation ul ul li", becomes: ".navigation ul ul ul li" */
+        
+        .navigation ul ul li{
+            background-color:#000000; /* grey */
+            width:170px;
+        }
+        
+        .navigation ul ul li:hover {
+            background-color:#999; /* grey */
+        }
+        
+        .navigation ul ul li a {
+            display:block;
+            text-decoration:none;
+            margin:0 12px;
+            padding:5px 0;
+            color:#4c4c4c; /* grey */
+            text-align: left; /* left side text dropdown menu */
+        }
+        .navigation ul ul li a:hover, .navigation ul ul li:hover > a {
+            color:#ffffff; /* white */
+            text-align: left; /* left side text dropdown menu */
+        }
+        
+ .navigation ul ul ul li a{
+            border:0 !important;
+        }
+        .navigation ul ul ul li + li a{
+            border-top:1px dotted #999 !important;
+        }
+        .navigation ul ul li + li a{
+            border-top:1px dotted #999;
+        }
+        .navigation ul ul li:hover + li a{
+            border-top:1px solid #eaeaea;
+        }
+        .navigation ul ul ul li:hover + li a{
+            border: 0 !important;
+        }
+        .navigation ul ul ul li:hover + li{
+            border-top:1px solid #999 !important;
+        }
+        
+   -webkit-transition: height 0.3s ease-in;
+            -moz-transition: height 0.3s ease-in;
+            -o-transition: height 0.3s ease-in;
+            -ms-transition: height 0.3s ease-in;
+            transition: height 0.3s ease-in;
+            
+    -webkit-transition: background-color 0.3s ease;
+            -moz-transition: background-color 0.3s ease;
+            -o-transition: background-color 0.3s ease;
+            -ms-transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease;
+            
+            
+       /* unfortunate ie7 gap fix */
+        .ie7 .navigation ul ul li{
+            margin-bottom:-3px;
+        }     
+            
+     

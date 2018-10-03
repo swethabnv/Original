@@ -1,0 +1,325 @@
+@CHARSET "UTF-8";
+body{
+	margin: 0px 0px 0px 0px; 
+	font-family: 'TH Sarabun New';
+	font-size: 19px;	
+}
+
+span{
+	width:150px;
+	padding-left: 10px;	
+}
+
+table{
+	font-family: 'TH Sarabun New';
+	font-size : 19px;
+	border-width: 3px;
+}
+
+.tableContent{
+	font-family: 'TH Sarabun New';
+	font-size : 19px;
+}
+
+.list{
+	font-family: 'TH Sarabun New';
+	font-size:19px;
+	border-color: black;
+	border: none;
+	color: black;
+	margin-left: 20px;
+}
+
+.data{
+	font-family: 'TH Sarabun New';
+	font-size : 19px;
+	color: black;
+	width: 1200px; 
+	border-style: solid;
+	border-width:2px;
+	padding-right: 10px;
+}
+
+
+a.page:link{
+ 	font-family: 'TH Sarabun New';
+	color: #0066CC ;
+	text-decoration: none;
+	padding-left: 50px;
+	font-size: 19px;
+}
+
+a.page:HOVER {
+	color: #CCCCFF;
+}
+:VISITED {
+	color:#0066CC;
+	text-decoration: none;
+}
+
+.detail{
+	font-family: 'TH Sarabun New';
+	font-size : 20px;
+	border-style: double;
+	border-color: #6633CC;
+	border-width: 3px;
+	width : 500px;
+	margin-top: 30px;
+	background-color: #FFFFF0;	
+}
+.tableTabHeader{
+	font-family: 'TH Sarabun New';
+	font-size : 19px;
+	color: black;
+}
+
+.fieldSet {
+	font-family: 'TH Sarabun New';
+	font-size : 19px;
+	font-weight: bold;
+	
+}
+
+.head {
+	font-family: 'TH Sarabun New';
+	font-size : 19px;
+	font-weight: bold;
+	color: #575155;
+}
+
+
+.container {width: 100%; margin: 10px auto;}
+ul.tabs {
+	margin: 0;
+	padding: 0;
+	float: left;
+	list-style: none;
+	border-bottom: 1px solid #999;
+	border-left: 1px solid #999;
+	width: 100%;
+	font-family: 'TH Sarabun New';
+}
+ul.tabs li {
+	float: left;
+	margin: 0;
+	padding: 0;
+	border: 1px solid #999;
+	border-left: none;
+	margin-bottom: -1px;
+	background: #ffe5f2;
+	overflow: hidden;
+	position: relative;
+	color: grey;
+	font-family: 'TH Sarabun New';
+}
+ul.tabs li a {
+	text-decoration: none;
+	color: grey;
+	display: block;
+	font-size: 19px;
+	font-family: 'TH Sarabun New';
+	padding: 0 5px;
+	border: 1px solid #fff;
+	outline: none;
+}
+ul.tabs li a:hover {
+	background: #ffe5f2;
+}	
+html ul.tabs li.active, html ul.tabs li.active a:hover  {
+	background: #fff;
+	border-bottom: 1px solid #fff;
+	font-size: 19px;
+	color: grey;
+	font-family: 'TH Sarabun New';
+}
+.tab_container {
+	border: 1px solid #999;
+	border-top: none;
+	clear: both;
+	float: left; 
+	width: 100%;
+	background: #fff;
+	font-family: 'TH Sarabun New';
+	-moz-border-radius-bottomright: 5px;
+	-khtml-border-radius-bottomright: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	-khtml-border-radius-bottomleft: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+}
+.tab_content {
+	padding: 5px;
+	font-size: 19px;
+	color: grey;
+	font-family: 'TH Sarabun New';
+	
+}
+.tab_content h2 {
+	font-weight: normal;
+	padding-bottom: 10px;
+	border-bottom: 1px dashed #ddd;
+	font-size: 19px;
+	font-family: 'TH Sarabun New';
+}
+.tab_content h3 a{
+	color: #254588;
+}
+
+
+/* start tab from here */
+
+div#i_containTab{  
+    position:relative;  
+    display:block;  
+    width:980px; /* กำหนดความกว้างทั้งหมด   */  
+    border:0px solid #CD853F;  
+}  
+ul#navi_containTab{  
+    list-style:none;  
+    padding:0;  
+    margin:0;     
+    width:100%;  
+    background-color:#CD853F;  
+}  
+ul#navi_containTab li{  
+    display:block;  
+    float:left;  
+    height:30px;      
+    width:155px;  /* กำหนดความกว้างทั้งหมด  หารด้วยจำนวนเมนูแท็บ  */  
+    border:1px solid #CD853F;
+    border-left:1px solid #FFFFFF;
+    border-top:1px solid #FFFFFF;
+    border-right:1px solid #888888;
+    border-bottom:1px solid #888888;
+    line-height:25px;  
+    cursor:pointer;  
+    text-align:center;  
+}  
+/* class รูปแบบของแต่ละเมนู */  
+.tabNavi1, .tabNavi2, .tabNavi3, .tabNavi4, .tabNavi5, .tabNavi6 {  
+    background-color:#DCDCDC;  
+} 
+
+ul#detail_containTab{  
+    list-style:none;  
+    padding:0;  
+    margin:0;     
+    width:100%;   
+}
+ul#tab_container{  
+    list-style:none;
+    margin:auto;
+}
+ul#detail_containTab li{  
+    float:left;  
+    width:100%;  
+    height:27px;
+    padding-top:2px;
+}
+/* class รูปแบบของแต่ละเนื้อหา */  
+.detailContent1{  
+    background-color:#FFFFF;    
+    display:block;  
+}  
+.detailContent2{  
+    background-color:#FFFFF;    
+    display:block;  
+}  
+.detailContent3{  
+    background-color:#FFFFF;        
+    display:none;  
+}  
+.detailContent4{  
+    background-color:#FFFFF;    
+    display:none;     
+}  
+.detailContent5{  
+    background-color:#FFFFF;    
+    display:none;     
+}  
+/*  5tabs start added by Jane on 17.09.2014 */
+
+div#i_containBreedTab{  
+    position:relative;  
+    display:block;  
+    width:910px; /* กำหนดความกว้างทั้งหมด   */  
+    border:1px solid #CCC;  
+}  
+ul#navi_containBreedTab{  
+    list-style:none;  
+    padding:0;  
+    margin:0;     
+    width:100%;  
+    background-color:#FCF;  
+}  
+ul#navi_containBreedTab li{  
+    display:block;  
+    float:left;  
+    height:30px;      
+    width:180px;  /* กำหนดความกว้างทั้งหมด  หารด้วยจำนวนเมนูแท็บ  */  
+    border:1px solid #CD853F;
+    border-left:1px solid #FFFFFF;
+    border-top:1px solid #FFFFFF;
+    border-right:1px solid #888888;
+    border-bottom:1px solid #888888;
+    line-height:25px;  
+    cursor:pointer;  
+    text-align:center;  
+}  
+/* class รูปแบบของแต่ละเมนู */  
+.tabBreed1{  
+    background-color:#DCDCDC; 
+     
+}  
+.tabBreed2{  
+    background-color:#DCDCDC;       
+}  
+.tabBreed3{  
+    background-color:#DCDCDC;        
+}  
+.tabBreed4{  
+    background-color:#DCDCDC;        
+}  
+.tabBreed5{  
+    background-color:#DCDCDC;        
+}  
+ul#detail_containBreedTab{  
+    list-style:none;  
+    padding:0;  
+    margin:0;     
+    width:100%;   
+}  
+ul#detail_containBreedTab li{  
+    float:left;  
+    width:100%;  
+    height:27px;     
+}  
+/* class รูปแบบของแต่ละเนื้อหา */  
+.detailBreed1{  
+    background-color:#FFFFF;    
+    display:block;  
+}  
+.detailBreed2{  
+    background-color:#FFFFF;        
+    display:none;  
+}  
+.detailBreed3{  
+    background-color:#FFFFF;    
+    display:none;     
+}  
+.detailBreed4{  
+    background-color:#FFFFF;        
+    display:none;  
+}  
+.detailBreed5{  
+    background-color:#FFFFF;    
+    display:none;     
+}  
+.checkStyle {
+
+}	
+.labelStyle {
+	color: blue;
+}
+/*  finish added by Jane on 17.09.2014 */
+

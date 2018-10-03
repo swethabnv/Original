@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wsndata.data">
+	<class name="Plant" table="Plant">
+		<id name="plantId" column="PlantId">
+		   <generator class="identity" />
+	    </id>
+		<property name="customerNo" column="CustomerNo" />
+        <property name="plantYear" column="PlantYear" />   
+        <property name="plantNo" column="PlantNo" />     
+        <property name="branchCode" column="BranchCode" />
+        <property name="idCard" column="IdCard" />
+        <property name="effectiveDate" column="EffectiveDate" />  
+        <property name="createDate" column="CreateDate" />
+        <property name="createBy" column="CreateBy" />
+        <property name="refPlantId" column="RefPlantId" />
+        <property name="breedTypeId" column="BreedTypeId" />
+		<property name="flag" column="Flag" />
+		<property name="farmerGroupId" column="FarmerGroupId" />
+		<property name="target" column="Target" />
+		
+		<property name="memberNo" column="MemberNo" />
+		<property name="accountName" column="AccountName" />
+        <property name="accountNo" column="AccountNo" />
+        <property name="bankId" column="BankId" />
+        <property name="season" column="Season" />
+		<property name="certificate" column="Certificate" />
+		<property name="registerNo" column="RegisterNo" />
+		<property name="bookNo" column="BookNo" />
+		<property name="documentNo" column="DocumentNo" />
+        <property name="registerDate" column="RegisterDate" />
+		<property name="registerBy" column="RegisterBy" />
+		<property name="farmerGroupId2" column="FarmerGroupId2" />
+		<property name="memberNo2" column="MemberNo2" />
+		<property name="target2" column="Target2" />
+		<property name="fta" column="FTA" />
+		<property name="plantStatus" column="PlantStatus" />
+		<property name="reason" column="Reason" />
+		<property name="status" column="Status" />
+		<property name="remark" column="Remark" />
+		<property name="register" column="Register" />
+		<property name="memberType" column="MemberType" />
+		<property name="income" column="Income" />
+		
+		<list name="landright" table="LandRight" cascade="all" fetch="subselect" lazy="false"> 
+			<key update="false">
+				<column name="PlantId" />
+			</key>
+			<index column="SEQ" />
+			<one-to-many class="LandRight" />
+		</list>
+		
+		<list name="assetDetail" table="AssetDetail" cascade="all" fetch="subselect" lazy="false">
+			<key update="false">
+				<column name="PlantId" />
+			</key>
+			<index column="SEQ" />
+			<one-to-many class="AssetDetail" />
+		</list>
+		
+		<list name="plantManure" table="PlantManure" cascade="all" fetch="subselect" lazy="false">
+			<key update="false">
+				<column name="PlantId" />
+			</key>
+			<index column="SEQ" />
+			<one-to-many class="PlantManure" />
+		</list>
+		
+		<list name="plantChemical" table="PlantChemical" cascade="all" fetch="subselect" lazy="false">
+			<key update="false">
+				<column name="PlantId" />
+			</key>
+			<index column="SEQ" />
+			<one-to-many class="PlantChemical" />
+		</list>
+		
+		<set name="farmerFamily" table="FarmerFamily" cascade="all" fetch="subselect" lazy="false">
+			<key update="false">
+				<column name="PlantId" />
+			</key>
+			<one-to-many class="FarmerFamily" />
+		</set>
+       	 
+ 	</class>
+</hibernate-mapping>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wsndata.data">
+	<class name="MixedBreedType" table="MixedBreedType">
+		<id name="mixedBreedTypeId" column="MixedBreedTypeId">
+			  <generator class="identity" />
+		</id>
+		<property name="description" column="Description" />
+		
+        <set name="mixedBreedTypeChild" table="MixedBreedChild" cascade="none" lazy="true">
+			<key column="mixedBreedTypeId" not-null="true"/>
+			<many-to-many column="childId" class="MixedBreedTypeChild"/>
+		</set>
+ 	</class>
+</hibernate-mapping>

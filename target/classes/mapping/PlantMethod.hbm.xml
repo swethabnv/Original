@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wsndata.data">
+	<class name="PlantMethod" table="PlantMethod">
+	    <id name="plantMethodId" column="PlantMethodId">
+		   <generator class="identity" />
+	    </id>
+     	<property name="plantMethodName" column="PlantMethodName" /> 
+     	<property name="breedTypeId" column="BreedTypeId" /> 
+     	<property name="breedGroupId" column="BreedGroupId" /> 
+     	 
+ 	</class>
+</hibernate-mapping>

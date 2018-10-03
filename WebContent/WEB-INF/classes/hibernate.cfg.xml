@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory name="WSN15"> 
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        
+	    <property name="hibernate.connection.url">jdbc:mysql://localhost/wsn15?characterEncoding=UTF-8</property>
+<!--   	 	<property name="hibernate.connection.url">jdbc:mysql://10.9.50.226/wsntest15?characterEncoding=UTF-8</property>    -->
+<!--	    <property name="hibernate.connection.url">jdbc:mysql://172.88.4.183/wsn15?characterEncoding=UTF-8</property>-->
+ 	  	<property name="hibernate.connection.username">wsn</property>
+        <property name="hibernate.connection.password">W$n@2014+</property>
+        
+        <property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+		<property name="hibernate.c3p0.min_size">5</property>
+		<property name="hibernate.c3p0.max_size">30</property>
+		<property name="hibernate.c3p0.max_statements">50</property>
+		<property name="hibernate.c3p0.maxConnectionAge">1800</property>
+		<property name="hibernate.c3p0.maxIdleTime">900</property>
+		<property name="hibernate.c3p0.idle_test_period">3000</property>
+		<property name="hibernate.c3p0.preferredTestQuery">select 1 from dual</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.session_factory_name">WSN15</property>
+        <property name="hibernate.current_session_context_class">thread</property>
+        <property name="hibernate.show_sql">true</property>
+        <mapping resource="/mapping/Asset.hbm.xml"/>
+        <mapping resource="/mapping/AssetDetail.hbm.xml"/>
+        <mapping resource="/mapping/Bank.hbm.xml"/>
+        <mapping resource="/mapping/BankBranch.hbm.xml"/>
+        <mapping resource="/mapping/Branch.hbm.xml"/>
+        <mapping resource="/mapping/BreedGroup.hbm.xml"/>
+        <mapping resource="/mapping/BreedType.hbm.xml"/>
+        <mapping resource="/mapping/Buyer.hbm.xml"/>
+        <mapping resource="/mapping/ChemicalType.hbm.xml"/>
+        <mapping resource="/mapping/Coordinates.hbm.xml"/>
+        <mapping resource="/mapping/Cost.hbm.xml"/>
+     	<mapping resource="/mapping/CostDetail.hbm.xml"/> 
+        <mapping resource="/mapping/District.hbm.xml"/>
+        <mapping resource="/mapping/Farmer.hbm.xml"/>
+        <mapping resource="/mapping/FarmerFamily.hbm.xml"/>
+        <mapping resource="/mapping/FarmerGroup.hbm.xml"/>
+        <mapping resource="/mapping/FarmerGroupAddress.hbm.xml"/>
+        <mapping resource="/mapping/FarmerGroupChild.hbm.xml"/>
+        <mapping resource="/mapping/FarmerGroupFarmer.hbm.xml"/>
+        <mapping resource="/mapping/FarmerGroupTeam.hbm.xml"/>
+        <mapping resource="/mapping/HarvestDetail.hbm.xml"/>
+        <mapping resource="/mapping/IrrigationArea.hbm.xml"/>
+        <mapping resource="/mapping/LandCheck.hbm.xml"/>
+        <mapping resource="/mapping/LandCheckImages.hbm.xml"/>
+        <mapping resource="/mapping/LandRight.hbm.xml"/>
+        <mapping resource="/mapping/LandRightType.hbm.xml"/>
+        <mapping resource="/mapping/LandStatus.hbm.xml"/>
+        <mapping resource="/mapping/LandType.hbm.xml"/>
+        <mapping resource="/mapping/Login.hbm.xml"/>
+        <mapping resource="/mapping/ManureType.hbm.xml"/>
+        <mapping resource="/mapping/Menu.hbm.xml"/>
+        <mapping resource="/mapping/PlantChemical.hbm.xml"/>
+        <mapping resource="/mapping/Plant.hbm.xml"/>
+        <mapping resource="/mapping/PlantDetail.hbm.xml"/>
+        <mapping resource="/mapping/PlantManure.hbm.xml"/>
+        <mapping resource="/mapping/PlantMethod.hbm.xml"/>
+        <mapping resource="/mapping/Prefix.hbm.xml"/>
+        <mapping resource="/mapping/PrepareArea.hbm.xml"/>
+        <mapping resource="/mapping/PrepareManure.hbm.xml"/>
+        <mapping resource="/mapping/ProductionForecast.hbm.xml"/>
+        <mapping resource="/mapping/Province.hbm.xml"/>
+        <mapping resource="/mapping/Region.hbm.xml"/>
+        <mapping resource="/mapping/SeedSelect.hbm.xml"/>
+        <mapping resource="/mapping/SellingDetail.hbm.xml"/>
+        <mapping resource="/mapping/SubDistrict.hbm.xml"/>
+        <mapping resource="/mapping/User.hbm.xml"/>
+        <mapping resource="/mapping/UserAuthorize.hbm.xml"/>
+        <mapping resource="/mapping/EconomicBreed.hbm.xml"/>
+        <mapping resource="/mapping/ProvinceDistrict.hbm.xml"/>
+        <mapping resource="/mapping/CheckPeriod.hbm.xml"/>
+        <mapping resource="/mapping/MixedBreedType.hbm.xml"/>
+        <mapping resource="/mapping/MixedBreedTypeChild.hbm.xml"/>
+        <mapping resource="/mapping/MixedBreedChild.hbm.xml"/>
+        <mapping resource="/mapping/PeriodMixedBreed.hbm.xml"/>
+        <mapping resource="/mapping/CheckingDisease.hbm.xml"/>
+        <mapping resource="/mapping/CheckingDiseaseChild.hbm.xml"/>
+        <mapping resource="/mapping/DiseaseType.hbm.xml"/>
+        <mapping resource="/mapping/EliminateMixedBreed.hbm.xml"/>
+        <mapping resource="/mapping/LandCheckDisease.hbm.xml"/>
+        <mapping resource="/mapping/LandCheckHarvest.hbm.xml"/>
+        <mapping resource="/mapping/LandCheckManure.hbm.xml"/>
+        <mapping resource="/mapping/LandCheckMixed.hbm.xml"/>
+        <mapping resource="/mapping/LandCheckPlant.hbm.xml"/>
+        <mapping resource="/mapping/LandCheckPrepareSoil.hbm.xml"/>
+        <mapping resource="/mapping/CloseDue.hbm.xml"/>
+        <mapping resource="/mapping/UserType.hbm.xml"/>
+        <mapping resource="/mapping/UserRegion.hbm.xml"/>
+        <mapping resource="/mapping/UserProvince.hbm.xml"/>
+        <mapping resource="/mapping/UserFarmerGroup.hbm.xml"/>
+    </session-factory>    
+</hibernate-configuration>

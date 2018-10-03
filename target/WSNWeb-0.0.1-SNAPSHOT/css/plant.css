@@ -1,0 +1,77 @@
+#ms {
+	width:150px;
+}
+.ddmenu {
+    position:relative;
+	padding:0px 50px;
+}
+.ddmenu span:hover .sub-ddmenu {
+    z-index:1;
+    display:block;
+}
+.sub-ddmenu {
+    width:160px;
+    padding:0px !important;
+    position:absolute;
+    top:96%;
+    left:0px;
+    z-index:-1;
+    display:none;
+    transition:opacity linear 0.15s;
+    box-shadow:0px 2px 3px rgba(0,0,0,0.2);
+    background:#FFFFFF;
+	border:solid 1px #000;
+}
+.sub-ddmenu li {
+	display:block;
+    width:152px;
+    padding:4px;
+}
+.sub-ddmenu li:after {
+	clear:both;
+}
+.sub-ddmenu li:hover {
+	color:#FFF;
+    background-color:#09C;
+}
+.sub-ddmenu li > * {
+	float:left;
+}
+.sub-ddmenu li > input {
+    display:block;
+	height:20px;
+}
+.sub-ddmenu li > label {
+	display:block;
+    width:130px;
+}
+.clearfix {
+	clear: both;
+	padding: 0px !important;
+}
+
+.multiselect {
+        width: 135px;
+ }
+ .selectBox {
+        position: relative;
+ }
+ .selectBox select {
+     width: 100%;
+ }
+ .overSelect {
+     position: absolute;
+     left: 0; right: 0; top: 0; bottom: 0;
+ }
+ .checkboxes {
+      display: none;
+      overflow-y: auto;
+      height:80px;
+      border: 1px #dadada solid;
+ }
+ .checkboxes label {
+      display: block;
+ }
+ .checkboxes label:hover {
+      background-color: #1e90ff;
+ }

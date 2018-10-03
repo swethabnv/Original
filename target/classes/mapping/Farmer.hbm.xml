@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wsndata.data">
+	<class name="Farmer" table="Farmer">
+		<composite-id>
+			<key-property name="idCard" column="IdCard" />
+			<key-property name="effectiveDate" column="EffectiveDate" />
+		</composite-id> 
+		<property name="abbrPrefix" column="AbbrPrefix" />
+        <property name="firstName" column="FirstName" />   
+        <property name="lastName" column="LastName" />     
+        <property name="addressNo" column="AddressNo" />
+        <property name="moo" column="Moo" />
+        <property name="postCode" column="PostCode" />     
+        <property name="tel" column="Tel" />
+        <property name="mobile" column="Mobile" />
+        <property name="createDate" column="CreateDate" />     
+        <property name="createBy" column="CreateBy" />
+        <property name="regionNo" column="RegionNo"/>
+        <property name="provinceNo" column="ProvinceNo" />
+        <property name="districtNo" column="DistrictNo"/>     
+        <property name="subDistrictNo" column="SubDistrictNo"/>
+        <property name="branchCode" column="branchCode" />
+        <property name="soi" column="Soi"/>
+        <property name="street" column="Street" />
+        <property name="farmerGroupId" column="FarmerGroupId"/>     
+        <property name="plantYear" column="PlantYear"/>
+        <property name="plantNo" column="PlantNo" />
+	 	<property name="email" column="Email" />
+	 	<property name="village" column="Village" />
+       
+ 	</class>
+</hibernate-mapping>

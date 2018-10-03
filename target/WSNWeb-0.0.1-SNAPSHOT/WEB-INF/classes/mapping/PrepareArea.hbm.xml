@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wsndata.data">
+	<class name="PrepareArea" table="PrepareArea">
+		<id name="prepareAreaId" column="PrepareAreaId">
+			 <generator class="assigned" />
+		</id>
+		<property name="prepareAreaName" column="PrepareAreaName" />
+		<property name="pprepareAreaId" column="PPrepareAreaId" />
+		<property name="breedTypeId" column="BreedTypeId" />
+		<property name="breedGroupId" column="BreedGroupId" />
+		<property name="lastUpdateDate" column="LastUpdateDate" />
+		<property name="lastUpdateBy" column="LastUpdateBy" />
+       
+		<!-- iterative -->
+        <list name="childPrepareArea" cascade="all" inverse="true" lazy="true" fetch="subselect">
+	  		<key on-delete="cascade">
+	  			<column name="PPrepareAreaId" not-null="true"/>
+	  		</key>
+	  		<index column="PrepareAreaId"/>
+			<one-to-many class="PrepareArea" />
+	  	</list>
+	  	
+        <many-to-one name="parentPrepareArea" class="PrepareArea" insert="false" update="false" lazy="false" fetch="join">
+			<column name="PPrepareAreaId" />
+		</many-to-one>
+ 	</class>
+</hibernate-mapping>

@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="r012_summary" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="e5382b84-646b-4255-a918-dcd894ddfed7">
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<parameter name="ID_CARD" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="IN_HUMIDTYPE" class="java.lang.Integer" isForPrompting="false"/>
+	<parameter name="SUM_AREA" class="java.math.BigDecimal" isForPrompting="false"/>
+	<parameter name="LAND_PROVINCE" class="java.lang.Long" isForPrompting="false"/>
+	<parameter name="IN_MANUFACTURE" class="java.lang.Integer" isForPrompting="false"/>
+	<parameter name="IN_OBJECTIVE" class="java.lang.Integer" isForPrompting="false"/>
+	<parameter name="IN_SEASON" class="java.lang.Integer" isForPrompting="false"/>
+	<parameter name="IN_BREEDTYPE" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="IN_YEAR" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select fm.PlantId, fm.IdCard, sum(fm.SumSaleCrop) as SumSaleCrop, avg(fm.AvgSalePrice) as AvgSalePrice, sum(fm.SumAmount) as SumAmount, sum(fm.SumSaleDryCrop) as SumSaleDryCrop, avg(fm.AvgSaleDryPrice) as AvgSaleDryPrice, sum(fm.SumDryAmount) as SumDryAmount, avg(fm.AvgHumid) as AvgHumid, avg(fm.AvgHumidDry) as AvgHumidDry, sum(fm.TotalHarvest) as TotalHarvest, sum(fm.RemainSell) as RemainSell, sum(fm.ConsumeProduct) as ConsumeProduct, sum(fm.BreedProduct) as BreedProduct
+from (
+select A.PlantId, hd.IdCard, A.DocNo, sum(A.SaleCrop) as SumSaleCrop, avg(A.SalePrice) as AvgSalePrice, sum(A.Amount) as SumAmount, sum(A.SaleDryCrop) as SumSaleDryCrop, avg(A.SaleDryPrice) as AvgSaleDryPrice, sum(A.DryAmount) as SumDryAmount, avg(A.Humid) as AvgHumid, avg(A.HumidDry) as AvgHumidDry, hd.TotalHarvest, hd.RemainSell, hd.ConsumeProduct, hd.BreedProduct
+from (
+SELECT sd.*
+FROM sellingdetail sd
+where sd.PlantID = (
+		select max(sd2.PlantId) as PlantId
+		from sellingdetail sd2
+		inner join plant p on p.PlantId = sd2.PlantId
+		where sd.DocNo = sd2.DocNo and p.IdCard = $P{ID_CARD}
+		)
+group by sd.PlantId, sd.DocNo, sd.TypeId,sd.SEQ,sd.SaleDate, sd.SaleSeq
+) A
+
+inner join (
+		select B.PlantId,B.IdCard, B.DocNo, sum(B.TotalHarvest) as TotalHarvest, sum(B.RemainSell) as RemainSell, sum(B.ConsumeProduct) as ConsumeProduct, sum(B.BreedProduct) as BreedProduct
+			from(
+			        SELECT hv.*,p.IdCard, lr.ProvinceNo, p.Season, p.PlantNo, bt.BreedTypeName FROM harvestdetail hv
+				join plantdetail pd on pd.PlantId = hv.PlantId and pd.BreedGroupId = hv.BreedGroupId and pd.BreedTypeId = hv.BreedTypeId and pd.DocNo = hv.DocNo and pd.TypeId = hv.TypeId and pd.SEQ = hv.SEQ
+				join landright lr on lr.PlantId = pd.PlantId and lr.DocNo = pd.DocNo and lr.TypeId = pd.TypeId and lr.SEQ = pd.SEQ
+				join plant p on p.PlantId = pd.PlantId and p.BreedTypeId = pd.BreedTypeId
+				join breedtype bt on bt.BreedTypeId = p.BreedTypeId
+				where CASE $P{LAND_PROVINCE} WHEN 0 THEN 1 ELSE lr.ProvinceNo = $P{LAND_PROVINCE} END
+					AND CASE IFNULL($P{IN_OBJECTIVE}, '')
+					WHEN 1 THEN pd.PlantObjective = 'เพื่อบริโภค'
+					WHEN 2 THEN pd.PlantObjective like '%เพื่อทำเมล็ดพันธุ์%'
+					WHEN 3 THEN pd.PlantObjective = 'เพื่อบริโภค' OR pd.PlantObjective like '%เพื่อทำเมล็ดพันธุ์%'
+					ELSE pd.PlantObjective IS NOT NULL END
+					AND CASE IFNULL($P{IN_MANUFACTURE}, '')
+					WHEN 1 THEN pd.Qualification = 'เกษตรอินทรีย์แท้'
+					WHEN 2 THEN pd.Qualification = 'เกษตรอินทรีย์'
+					WHEN 3 THEN pd.Qualification IN ('เกษตรอินทรีย์แท้', 'เกษตรอินทรีย์')
+					WHEN 4 THEN pd.Qualification = 'เกษตรทั่วไป'
+					WHEN 5 THEN pd.Qualification IN ('เกษตรอินทรีย์แท้', 'เกษตรทั่วไป')
+					WHEN 6 THEN pd.Qualification IN ('เกษตรอินทรีย์', 'เกษตรทั่วไป')
+					WHEN 7 THEN pd.Qualification IN ('เกษตรอินทรีย์แท้', 'เกษตรอินทรีย์', 'เกษตรทั่วไป')
+					ELSE pd.Qualification IS NOT NULL END
+					AND CASE IFNULL($P{IN_BREEDTYPE}, '')
+					WHEN 'ข้าว' THEN (
+					CASE IFNULL($P{IN_SEASON}, '')
+					WHEN 1 THEN p.PlantNo = 1
+					WHEN 2 THEN p.PlantNo = 2
+					WHEN 3 THEN p.PlantNo IN (1, 2) END
+					) AND bt.BreedTypeName = 'ข้าว'
+					WHEN '' THEN p.PlantNO IS NOT NULL
+					ELSE bt.BreedTypeName = $P{IN_BREEDTYPE} END
+					AND p.PlantYear = $P{IN_YEAR}
+				AND p.CreateDate in (select
+							max(p2.CreateDate)
+							from plant p2
+							where p2.RefPlantId = p.RefPlantId
+							group by p2.RefPlantId , date_format(p2.CreateDate, '%Y%m%d'))
+						 AND p.PlantId in (select
+							max(p3.PlantId)
+							from plant p3
+							where p3.RefPlantId = p.RefPlantId
+							group by p3.RefPlantId)
+				group by hv.BreedTypeId, hv.BreedGroupId, hv.DocNo, hv.TypeId, hv.SEQ, hv.HarvestDate, p.PlantId
+				) B
+		group by DocNo, PlantId
+		) hd on hd.DocNo = A.DocNo and hd.PlantId = A.PlantId
+#inner join r012 r on r.PlantId = A.PlantId
+group by A.PlantId, A.DocNo
+) fm
+where fm.IdCard = $P{ID_CARD}
+group by fm.IdCard]]>
+	</queryString>
+	<field name="PlantId" class="java.lang.Long"/>
+	<field name="SumSaleCrop" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[summary Crop sale unit in KG]]></fieldDescription>
+	</field>
+	<field name="AvgSalePrice" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Average sell price of Crop]]></fieldDescription>
+	</field>
+	<field name="SumAmount" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[summary amount of Crop selling]]></fieldDescription>
+	</field>
+	<field name="SumSaleDryCrop" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[summary dry crop sale unit in KG]]></fieldDescription>
+	</field>
+	<field name="AvgSaleDryPrice" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Average sell price of Dry Crop]]></fieldDescription>
+	</field>
+	<field name="SumDryAmount" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[summary amount of dry Crop selling]]></fieldDescription>
+	</field>
+	<field name="AvgHumid" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[average hudmid of Crop]]></fieldDescription>
+	</field>
+	<field name="AvgHumidDry" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[average hudmid of dry Crop]]></fieldDescription>
+	</field>
+	<field name="TotalHarvest" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[total harvest by DocNo]]></fieldDescription>
+	</field>
+	<field name="RemainSell" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[total remain from selling by DocNo]]></fieldDescription>
+	</field>
+	<field name="ConsumeProduct" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[total consume product by DocNo]]></fieldDescription>
+	</field>
+	<field name="BreedProduct" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[total breed product by DocNo]]></fieldDescription>
+	</field>
+	<variable name="TOTAL_HARVEST" class="java.math.BigDecimal" resetType="Page">
+		<variableExpression><![CDATA[$F{TotalHarvest}]]></variableExpression>
+	</variable>
+	<variable name="TOTAL_SELL" class="java.math.BigDecimal" resetType="Page">
+		<variableExpression><![CDATA[$F{RemainSell}]]></variableExpression>
+	</variable>
+	<variable name="SELL_PRICE" class="java.math.BigDecimal" resetType="Page">
+		<variableExpression><![CDATA[$P{IN_HUMIDTYPE}==0 ? $F{AvgSalePrice} : $F{AvgSaleDryPrice}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="73" splitType="Stretch">
+			<textField pattern="#,##0.00" isBlankWhenNull="false">
+				<reportElement key="textField" x="117" y="2" width="133" height="18" uuid="061c0063-d920-4dd9-aa85-0c4142e66184"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TotalHarvest}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="false">
+				<reportElement key="textField" x="117" y="55" width="133" height="18" uuid="1654faf3-d855-4151-8bec-c13ae17a5fd3"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{RemainSell}]]></textFieldExpression>
+			</textField>
+			<textField pattern="##0.00" isBlankWhenNull="false">
+				<reportElement key="textField" x="465" y="2" width="31" height="18" uuid="5da49a5b-bb40-4a1c-9e5e-1ba30923aa55"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{IN_HUMIDTYPE}==0 ? $F{AvgHumid} : $F{AvgHumidDry}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="false">
+				<reportElement key="textField-1" x="117" y="20" width="133" height="18" uuid="ffe89a39-d254-40ea-9d35-c649058a9194"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ConsumeProduct}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="false">
+				<reportElement key="textField-2" x="117" y="38" width="133" height="18" uuid="22dc79c1-60d0-4eb8-8287-3f8e824dafc9"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BreedProduct}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="false">
+				<reportElement key="textField-4" x="317" y="55" width="64" height="18" uuid="65f697f4-18d7-429a-8246-bc23f300a3dc"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{IN_HUMIDTYPE}==0 ? $F{AvgSalePrice} : $F{AvgSaleDryPrice}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wsndata.data">
+	<class name="HarvestDetail" table="HarvestDetail">
+	    <composite-id>
+			<key-property name="plantId" column="PlantId" />
+			<key-property name="harvestDate" column="HarvestDate" />
+			<key-property name="breedTypeId" column="BreedTypeId" />
+			<key-property name="breedGroupId" column="BreedGroupId" />
+			<key-property name="docNo" column="DocNo" />
+			<key-property name="typeId" column="TypeId" />
+			<key-property name="seq" column="SEQ" />
+		</composite-id> 
+		<property name="totalHarvest" column="TotalHarvest" />
+        <property name="remainSell" column="RemainSell" />   
+        <property name="consumeProduct" column="ConsumeProduct" />
+        <property name="breedProduct" column="BreedProduct" />   
+        
+        <many-to-one name="plantDetail" class="PlantDetail" insert="false" update="false" fetch="join" lazy="false">
+			 <column name="PlantId" />
+			 <column name="DocNo" />
+			 <column name="TypeId" />
+			 <column name="SEQ" />
+			 <column name="BreedTypeId" />
+			 <column name="BreedGroupId" />
+		</many-to-one>	 
+            
+ 	</class>
+</hibernate-mapping>

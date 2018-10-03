@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wsndata.data">
+	<class name="PlantDetail" table="PlantDetail">
+		<composite-id>
+			<key-property name="plantId" column="PlantId" />
+			<key-property name="docNo" column="DocNo" />
+			<key-property name="typeId" column="TypeId" /> 
+			<key-property name="seq" column="SEQ" /> 	 
+			<key-property name="breedTypeId" column="BreedTypeId" /> 
+			<key-property name="breedGroupId" column="BreedGroupId" />
+		</composite-id> 
+		
+		<property name="qtyPerRai" column="QtyPerRai" /> 
+     	<property name="costPerRai" column="CostPerRai" /> 
+     	<property name="seedFrom" column="SeedFrom" /> 
+     	<property name="seedSelect" column="SeedSelect" /> 
+     	<property name="plantObjective" column="PlantObjective" /> 
+     	<property name="qualification" column="Qualification" /> 
+     	<property name="standard" column="Standard" /> 
+     	<property name="plantMethod" column="PlantMethod" /> 
+     	<property name="prepareArea" column="PrepareArea" /> 
+     	<property name="prepareAreaOther" column="PrepareAreaOther" /> 
+     	<property name="prepareManure" column="PrepareManure" />
+     	<property name="plantRai" column="PlantRai" />  
+        <property name="plantNgan" column="PlantNgan" />
+        <property name="plantWah" column="PlantWah" />
+     	
+     	<property name="plantDate" column="PlantDate" />     
+        <property name="forecastDate" column="ForecastDate" />
+        <property name="forecastRecord" column="ForecastRecord" />
+        <property name="publicMarketDate" column="PublicMarketDate" />
+        <property name="publicCrop" column="PublicCrop" />
+        <property name="recordForecastBy" column="RecordForecastBy" />     
+        <property name="recordForecastDate" column="RecordForecastDate" />
+     	
+     	<property name="cooperativeId" column="CooperativeId" />     
+        <property name="noOfSeed" column="NoOfSeed" />
+     	
+     	
+		<many-to-one name="landRight" class="LandRight" lazy="false" fetch="join" insert="false" update="false">
+               	<column name="DocNo" />
+	            <column name="PlantId" />
+	            <column name="TypeId" />
+		        <column name="SEQ" />
+	    </many-to-one>  
+     	
+		<many-to-one name="breedGroup" class="BreedGroup" lazy="false" fetch="join" insert="false" update="false">
+	        <column name="BreedTypeId" />
+	        <column name="BreedGroupId" />
+	    </many-to-one>    
+		
+        <list name="plantManure" table="PlantManure" cascade="all" fetch="subselect" lazy="false">
+               <key update="false" >
+				  <column name="PlantId" />
+				  <column name="DocNo" />
+				  <column name="TypeId" />
+				  <column name="SEQ" />
+				  <column name="BreedTypeId" />
+				  <column name="BreedGroupId" />
+              </key>      
+            	<index column="MSEQ"/>
+          		<one-to-many class="PlantManure" />
+       	 </list>
+	  
+		  <list name="plantChemical" table="PlantChemical" cascade="all" fetch="subselect" lazy="false">
+               <key update="false" >
+                  <column name="PlantId" />
+				  <column name="DocNo" />
+				  <column name="TypeId" />
+				  <column name="SEQ" />
+				  <column name="BreedTypeId" />
+				  <column name="BreedGroupId" />
+              </key>      
+            	<index column="CSEQ"/>
+          		<one-to-many class="PlantChemical" />
+       	 </list>
+		
+       	 
+			
+		<set name="costDetail" table="CostDetail" cascade="all" fetch="subselect" lazy="false">
+			<key update="false" >
+                  <column name="PlantId" />
+				  <column name="DocNo" />
+				  <column name="TypeId" />
+				  <column name="SEQ" />
+				  <column name="BreedTypeId" />
+				  <column name="BreedGroupId" />
+             </key>  
+			<one-to-many class="CostDetail" />
+		</set>
+ 	   
+ 	 	<set name="harvestDetail" table="HarvestDetail" cascade="all" fetch="subselect" lazy="false">
+			 <key update="false" >
+                  <column name="PlantId" />
+				  <column name="DocNo" />
+				  <column name="TypeId" />
+				  <column name="SEQ" />
+				  <column name="BreedTypeId" />
+				  <column name="BreedGroupId" />
+             </key>  
+		     <one-to-many class="HarvestDetail" />
+		 </set>
+		 
+		 <set name="sellingDetail" table="SellingDetail" cascade="all" fetch="subselect" lazy="false">
+			 <key update="false" >
+                  <column name="PlantId" />
+				  <column name="DocNo" />
+				  <column name="TypeId" />
+				  <column name="SEQ" />
+				  <column name="BreedTypeId" />
+				  <column name="BreedGroupId" />
+             </key>  
+		     <one-to-many class="SellingDetail" />
+		 </set>
+ 	</class>
+</hibernate-mapping>

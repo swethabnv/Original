@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wsndata.data">
+	<class name="Region" table="Region">
+		<id name="regionNo" column="RegionNo">
+			 <generator class="identity" />
+		</id>
+	    <property name="regionName" column="RegionName" />
+	    <property name="lastUpdateDate" column="LastUpdateDate" />
+	    <property name="lastUpdateBy" column="LastUpdateBy" />
+	    
+         <!-- 1 Region to Many Province
+
+        <list name="province" table="Province" cascade="all" fetch="subselect" lazy="false">
+               <key update="false" >
+                 <column name="RegionNo" />
+              </key>      
+            	<index column="ProvinceNo"/>
+          		<one-to-many class="Province" />
+       	 </list>
+       	 -->
+       	 	<list name="province" table="Province" fetch="subselect" lazy="false" cascade="all">
+			<key>
+	  			<column name="RegionNo" not-null="true"/>
+	  		</key>
+	  		<index column="ProvinceNo" />
+			<one-to-many class="Province" />
+		</list>
+	    
+ 	</class>
+</hibernate-mapping>

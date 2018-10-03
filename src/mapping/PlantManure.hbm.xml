@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wsndata.data">
+	<class name="PlantManure" table="PlantManure">
+	 <id name="plantManureId" column="PlantManureId">
+		<generator class="identity" />
+	 </id>
+	
+     <property name="manureName" column="ManureName" /> 
+     <property name="formula" column="Formula" /> 
+     <property name="qtyPerRai" column="QtyPerRai" /> 
+     <property name="costPerRai" column="CostPerRai" /> 
+   	 <property name="mseq" column="MSEQ" />
+   	 <property name="period" column="Period" /> 
+     <property name="dateUse" column="DateUse" /> 
+     <property name="manureStatus" column="ManureStatus" /> 
+        
+      <!-- not null field -->
+     <property name="plantId" column="PlantId" /> 
+     <property name="breedTypeId" column="BreedTypeId" /> 
+   	 <property name="breedGroupId" column="BreedGroupId" />
+   	 <property name="docNo" column="DocNo" /> 
+     <property name="typeId" column="TypeId" /> 
+     <property name="seq" column="SEQ" />
+     <property name="manureTypeId" column="ManureTypeId" />
+     
+     <many-to-one name="plantDetail" class="PlantDetail" insert="false" update="false" fetch="join" lazy="false">
+		<column name="PlantId" />
+		<column name="DocNo" />
+		<column name="TypeId" />
+		<column name="SEQ" />
+		<column name="BreedTypeId" />
+		<column name="BreedGroupId" />
+	</many-to-one>	
+      
+ 	</class>
+</hibernate-mapping>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wsndata.data">
+	<class name="SubDistrict" table="SubDistrict">
+		<composite-id>
+			<key-property name="regionNo" column="RegionNo" />
+			<key-property name="provinceNo" column="ProvinceNo" />
+			<key-property name="districtNo" column="DistrictNo" />
+		    <key-property name="subDistrictNo" column="SubDistrictNo" />
+		</composite-id> 
+	    <property name="thaiName" column="ThaiName" />
+        <property name="engName" column="EngName" />   
+        <property name="postCode" column="PostCode"></property>
+        <property name="lastUpdateDate" column="LastUpdateDate" />     
+        <property name="lastUpdateBy" column="LastUpdateBy" />
+         
+        <!-- many SubDistrict to 1 District -->
+         <many-to-one name="district" class="District" lazy="false" fetch="join" insert="false" update="false">
+                <column name="RegionNo" />
+                <column name="ProvinceNo" />
+ 	            <column name="DistrictNo" />
+        </many-to-one>
+       
+ 	</class>
+</hibernate-mapping>

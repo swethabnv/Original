@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wsndata.data">
+	<class name="SellingDetail" table="SellingDetail">
+		<composite-id>
+			<key-property name="plantId" column="PlantId" />
+			<key-property name="breedTypeId" column="BreedTypeId" />
+			<key-property name="breedGroupId" column="BreedGroupId" />
+			<key-property name="docNo" column="DocNo" />
+			<key-property name="typeId" column="TypeId" />
+			<key-property name="seq" column="SEQ" />
+			<key-property name="saleDate" column="SaleDate" />
+			<key-property name="saleSeq" column="SaleSeq" />
+		</composite-id> 
+		<property name="saleCrop" column="SaleCrop" />
+        <property name="salePrice" column="SalePrice" />   
+        <property name="amount" column="Amount" />
+        <property name="buyer" column="Buyer" />   
+        <property name="buyerAddress" column="BuyerAddress" />   
+        <property name="regionNo" column="RegionNo" />
+		<property name="provinceNo" column="ProvinceNo" />
+		<property name="districtNo" column="DistrictNo" />
+		<property name="subDistrictNo" column="SubDistrictNo" />
+        <property name="soi" column="Soi" />   
+        <property name="tel" column="Tel" />   
+        <property name="moo" column="Moo" />
+        <property name="buyerId" column="BuyerId" />  
+        
+        <property name="saleDryCrop" column="SaleDryCrop" />
+        <property name="saleDryPrice" column="SaleDryPrice" />   
+        <property name="dryAmount" column="DryAmount" />
+        
+        <property name="humidDry" column="HumidDry" />   
+        <property name="humid" column="Humid" />
+        
+        <many-to-one name="plantDetail" class="PlantDetail" lazy="false" fetch="join" insert="false" update="false">
+            <column name="PlantId" />
+			<column name="DocNo" />
+			<column name="TypeId" />
+			<column name="SEQ" />
+			<column name="BreedTypeId" />
+			<column name="BreedGroupId" />
+        </many-to-one>
+ 	</class>
+</hibernate-mapping>
