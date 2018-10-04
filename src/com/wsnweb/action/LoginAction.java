@@ -61,11 +61,11 @@ public class LoginAction extends Action {
 		Login login = null;
 		String page = ""; 
 		try{	
-			MessageDigest digest = MessageDigest.getInstance("MD5");
+			/*MessageDigest digest = MessageDigest.getInstance("MD5");
 			digest.update(eform.getPassword().getBytes("UTF-8")); 
 			byte raw[] = digest.digest(); 
-		    String password = (new BASE64Encoder()).encode(raw); 
-			
+		    String password = (new BASE64Encoder()).encode(raw); */
+			String password=eform.getPassword();
 			sf.getCurrentSession().beginTransaction();
 			eform.setUserName(eform.getUserName().toLowerCase());
 			login = loginHome.loggingOn(eform.getUserName());
