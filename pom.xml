@@ -7,6 +7,14 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 </properties>
   <packaging>war</packaging>
+  	<repositories>
+    <!--other repositories if any-->
+    <repository>
+        <id>project.local</id>
+        <name>project</name>
+        <url>file:${project.basedir}/repo</url>
+    </repository>
+</repositories>
   <build>
     <sourceDirectory>src</sourceDirectory>
     <resources>
@@ -79,6 +87,13 @@
   		</dependency>
   		
 
+  <!-- https://mvnrepository.com/artifact/commons-digester/commons-digester -->
+<!-- https://mvnrepository.com/artifact/commons-digester/commons-digester -->
+<dependency>
+    <groupId>commons-digester</groupId>
+    <artifactId>commons-digester</artifactId>
+    <version>2.1</version>
+</dependency>
 
 
 
@@ -93,28 +108,22 @@
 	<dependency>
     <groupId>WSNData1</groupId>
     <artifactId>WSNData1</artifactId>
-    <scope>system</scope>
-    <version>1.0</version>
-    <systemPath>${basedir}/WebContent/WEB-INF/lib/WSNData-0.0.1-SNAPSHOT.jar</systemPath>
+   <version>1.0</version>
 </dependency>
 
 	<dependency>
     <groupId>WSNDB1</groupId>
     <artifactId>WSNDB1</artifactId>
-    <scope>system</scope>
     <version>1.0</version>
-    <systemPath>${basedir}/WebContent/WEB-INF/lib/WSNDB-0.0.1-SNAPSHOT.jar</systemPath>
-</dependency>
+    </dependency>
 
   
  
    <dependency>
     <groupId>DCSLib</groupId>
     <artifactId>DCSLib</artifactId>
-    <scope>system</scope>
     <version>1.0</version>
-    <systemPath>${basedir}/WebContent/WEB-INF/lib/DCSLib.jar</systemPath>
-</dependency>
+   </dependency>
 
 <!-- https://mvnrepository.com/artifact/com.itextpdf/itextpdf -->
 <dependency>
@@ -175,12 +184,7 @@
     </dependency>
    
   
-  <!-- https://mvnrepository.com/artifact/commons-digester/commons-digester -->
-<dependency>
-    <groupId>commons-digester</groupId>
-    <artifactId>commons-digester</artifactId>
-    <version>1.6</version>
-</dependency>
+
   <!-- https://mvnrepository.com/artifact/org.apache.struts/struts-tiles -->
 <dependency>
     <groupId>org.apache.struts</groupId>
@@ -236,5 +240,7 @@
 
   		
   	</dependencies>
+  	
+  
   
 </project>
