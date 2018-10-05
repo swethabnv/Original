@@ -90,18 +90,17 @@
 </dependency>
 
 
-  
-  	<dependency>
-    <groupId>WSNData-0.0.1-SNAPSHOT</groupId>
-    <artifactId>WSNData-0.0.1-SNAPSHOT</artifactId>
+	<dependency>
+    <groupId>WSNData1</groupId>
+    <artifactId>WSNData1</artifactId>
     <scope>system</scope>
     <version>1.0</version>
     <systemPath>${basedir}/WebContent/WEB-INF/lib/WSNData-0.0.1-SNAPSHOT.jar</systemPath>
 </dependency>
 
 	<dependency>
-    <groupId>WSNDB-0.0.1-SNAPSHOT</groupId>
-    <artifactId>WSNDB-0.0.1-SNAPSHOT</artifactId>
+    <groupId>WSNDB1</groupId>
+    <artifactId>WSNDB1</artifactId>
     <scope>system</scope>
     <version>1.0</version>
     <systemPath>${basedir}/WebContent/WEB-INF/lib/WSNDB-0.0.1-SNAPSHOT.jar</systemPath>
