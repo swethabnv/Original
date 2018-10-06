@@ -3,7 +3,7 @@
 		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
 		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-    <session-factory name="heroku_12c8f021a06a74a"> 
+    <session-factory name="SessionFactory"> 
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
         
 	    <property name="hibernate.connection.url">jdbc:mysql://eu-cdbr-west-02.cleardb.net:3306/heroku_12c8f021a06a74a?characterEncoding=UTF-8</property>
@@ -21,7 +21,7 @@
 		<property name="hibernate.c3p0.idle_test_period">3000</property>
 		<property name="hibernate.c3p0.preferredTestQuery">select 1 from dual</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="hibernate.session_factory_name">heroku_12c8f021a06a74a</property>
+       <property name="hibernate.session_factory_name">heroku_12c8f021a06a74a</property>
         <property name="hibernate.current_session_context_class">thread</property>
         <property name="hibernate.show_sql">true</property>
         <mapping resource="/mapping/Asset.hbm.xml"/>
