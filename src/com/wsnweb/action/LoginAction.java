@@ -36,13 +36,12 @@ public class LoginAction extends Action {
 	private final int TIME_SHOW_CAPCHA = Integer.parseInt(Utility.get("TIME_SHOW_CAPCHA"), 10);
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception{		
 		LoginForm eform = (LoginForm)form;
-	if("Login".equals(eform.getCmd()))
+		if("Login".equals(eform.getCmd()))
 		 	return logOn(mapping, form, request, response);
 		else if("Logout".equals(eform.getCmd()))
 			return logOut(mapping, form, request, response);
 		else
 			return mapping.findForward("logon");
-		
 	 }
 	
 	
@@ -61,11 +60,11 @@ public class LoginAction extends Action {
 		Login login = null;
 		String page = ""; 
 		try{	
-			/*MessageDigest digest = MessageDigest.getInstance("MD5");
+			MessageDigest digest = MessageDigest.getInstance("MD5");
 			digest.update(eform.getPassword().getBytes("UTF-8")); 
 			byte raw[] = digest.digest(); 
-		    String password = (new BASE64Encoder()).encode(raw); */
-			String password=eform.getPassword();
+		    String password = (new BASE64Encoder()).encode(raw); 
+			
 			sf.getCurrentSession().beginTransaction();
 			eform.setUserName(eform.getUserName().toLowerCase());
 			login = loginHome.loggingOn(eform.getUserName());

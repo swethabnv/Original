@@ -3,10 +3,10 @@
 		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
 		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-    <session-factory name="SessionFactory"> 
+    <session-factory > 
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
         
-	    <property name="hibernate.connection.url">jdbc:mysql://eu-cdbr-west-02.cleardb.net:3306/heroku_12c8f021a06a74a?characterEncoding=UTF-8</property>
+	    <property name="hibernate.connection.url">jdbc:mysql://eu-cdbr-west-02.cleardb.net:3306/heroku_12c8f021a06a74a?reconnect=true</property>
 <!--   	 	<property name="hibernate.connection.url">jdbc:mysql://10.9.50.226/wsntest15?characterEncoding=UTF-8</property>    -->
 <!--	    <property name="hibernate.connection.url">jdbc:mysql://172.88.4.183/wsn15?characterEncoding=UTF-8</property>-->
  	  	<property name="hibernate.connection.username">b516f81a2fdc2a</property>
