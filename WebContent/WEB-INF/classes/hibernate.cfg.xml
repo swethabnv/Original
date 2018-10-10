@@ -3,25 +3,25 @@
 		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
 		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-    <session-factory name="WSN15"> 
+    <session-factory > 
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
         
-	    <property name="hibernate.connection.url">jdbc:mysql://localhost/wsn15?characterEncoding=UTF-8</property>
+	    <property name="hibernate.connection.url">jdbc:mysql://eu-cdbr-west-02.cleardb.net:3306/heroku_12c8f021a06a74a?reconnect=true</property>
 <!--   	 	<property name="hibernate.connection.url">jdbc:mysql://10.9.50.226/wsntest15?characterEncoding=UTF-8</property>    -->
 <!--	    <property name="hibernate.connection.url">jdbc:mysql://172.88.4.183/wsn15?characterEncoding=UTF-8</property>-->
- 	  	<property name="hibernate.connection.username">wsn</property>
-        <property name="hibernate.connection.password">W$n@2014+</property>
+ 	  	<property name="hibernate.connection.username">b516f81a2fdc2a</property>
+        <property name="hibernate.connection.password">ee11375f</property>
         
         <property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
 		<property name="hibernate.c3p0.min_size">5</property>
-		<property name="hibernate.c3p0.max_size">30</property>
+		<property name="hibernate.c3p0.max_size">100</property>
 		<property name="hibernate.c3p0.max_statements">50</property>
 		<property name="hibernate.c3p0.maxConnectionAge">1800</property>
 		<property name="hibernate.c3p0.maxIdleTime">900</property>
 		<property name="hibernate.c3p0.idle_test_period">3000</property>
 		<property name="hibernate.c3p0.preferredTestQuery">select 1 from dual</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="hibernate.session_factory_name">WSN15</property>
+       <property name="hibernate.session_factory_name">heroku_12c8f021a06a74a</property>
         <property name="hibernate.current_session_context_class">thread</property>
         <property name="hibernate.show_sql">true</property>
         <mapping resource="/mapping/Asset.hbm.xml"/>

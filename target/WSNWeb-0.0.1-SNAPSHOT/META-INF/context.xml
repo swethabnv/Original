@@ -34,11 +34,11 @@
           type="javax.sql.DataSource"
           username="b516f81a2fdc2a"
           password="ee11375f"
-          driverClassName=" com.mysql.jdbc.Driver"
+          driverClassName="com.mysql.jdbc.Driver"
           url="jdbc:mysql://eu-cdbr-west-02.cleardb.net:3306/heroku_12c8f021a06a74a?reconnect=true"
           maxActive="100"
           maxIdle="10"
           maxWait="10000"
-          validationQuery="Select 1"
+          
 />
 </Context>
