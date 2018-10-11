@@ -10,6 +10,18 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 	
+	
+	<resource-ref>
+
+             <description>ClearDB database</description>
+
+              <res-ref-name>jdbc/heroku_12c8f021a06a74a</res-ref-name>
+
+              <res-type>javax.sql.DataSource</res-type>
+
+              <res-auth>Container</res-auth>
+
+     </resource-ref>
 	<servlet>
 		<servlet-name>action</servlet-name>
 		<servlet-class>
