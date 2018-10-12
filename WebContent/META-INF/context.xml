@@ -29,7 +29,8 @@
     <!--
     <Valve className="org.apache.catalina.valves.CometConnectionManagerValve" />
     -->
-<Resource name="jdbc/heroku_12c8f021a06a74a"
+    
+    <Resource name="jdbc/heroku_12c8f021a06a74a"
           auth="Container"
           type="javax.sql.DataSource"
           username="b516f81a2fdc2a"
@@ -41,4 +42,5 @@
           maxWait="10000"
           
 />
+
 </Context>

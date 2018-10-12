@@ -136,13 +136,7 @@
     <version>2.3.1</version>
     <scope>provided</scope>
 </dependency>
-  <dependency>
-    <groupId>DCSLib</groupId>
-    <artifactId>DCSLib</artifactId>
-    <scope>system</scope>
-    <version>1.0</version>
-    <systemPath>${basedir}/WebContent/WEB-INF/lib/DCSLib.jar</systemPath>
-</dependency>
+ 
  
    <!-- https://mvnrepository.com/artifact/jfree/jfreechart -->
 <dependency>

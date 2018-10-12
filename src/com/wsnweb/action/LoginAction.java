@@ -15,7 +15,9 @@ import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
 import sun.misc.BASE64Encoder;
 
@@ -50,7 +52,8 @@ public class LoginAction extends Action {
 	{
 		LoginForm eform = (LoginForm)form;
 		SessionFactory sf = HibernateHome.getSessionFactory();
-		
+		System.out.println("sessionfactory object representation"+sf);
+		System.out.println("SUCCESS CREATED SESSION FACTORY");
 		HttpSession session = request.getSession();
 		String verificationCode = (String)session.getAttribute("verification.code");
 		
@@ -64,10 +67,14 @@ public class LoginAction extends Action {
 			digest.update(eform.getPassword().getBytes("UTF-8")); 
 			byte raw[] = digest.digest(); 
 		    String password = (new BASE64Encoder()).encode(raw); 
-			
-			sf.getCurrentSession().beginTransaction();
+			System.out.println("before entering transaction");
+			Transaction tx=null;
+	    	tx=sf.getCurrentSession().beginTransaction();
+			System.out.println("after entering transaction");
 			eform.setUserName(eform.getUserName().toLowerCase());
+			
 			login = loginHome.loggingOn(eform.getUserName());
+			System.out.println("got username succesfully");
 			userLogin= userHome.authenticateUser(eform.getUserName().toLowerCase(), password);  //
 			
 			if(userLogin != null) 
