@@ -170,7 +170,7 @@ function showErrorMessage(){
                  	<dcs:textcolumn dataField="plantYear" headerText="ปีการผลิต" width="200" sortable="true" HAlign="left" style="cursor:pointer" onClick="loadEdit('{closeDueId}');"/>
                  	<dcs:textcolumn dataField="plantNo" headerText="ครั้งที่" width="200" sortable="true" HAlign="left" style="cursor:pointer" onClick="loadEdit('{closeDueId}');"/>
                  	<dcs:textcolumn dataField="farmerGroupName" headerText="สังกัดสหกรณ์" width="400" sortable="true" HAlign="left" style="cursor:pointer" onClick="loadEdit('{closeDueId}');"/>
-                 	<dcs:imagecolumn dataField="linkImageEdit" headerText="" style="padding-top:2px;cursor:pointer;" width="40"  HAlign="center" toolTip="แก้ไข" cssClass="manage-sr" onClick="loadEdit('{closeDueId}');"/>
+                 	<dcs:imagecolumn dataField="linkImageEdit" headerText="" style="padding-top:2px;cursor:pointer;" width="40"  HAlign="center"  cssClass="manage-sr" onClick="loadEdit('{closeDueId}');"/>
                  	</dcs:grid>
             	</td>
             	<% } %>

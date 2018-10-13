@@ -68,8 +68,8 @@ public class LoginAction extends Action {
 			byte raw[] = digest.digest(); 
 		    String password = (new BASE64Encoder()).encode(raw); 
 			System.out.println("before entering transaction");
-			Transaction tx=null;
-	    	tx=sf.getCurrentSession().beginTransaction();
+			
+			sf.getCurrentSession().beginTransaction();
 			System.out.println("after entering transaction");
 			eform.setUserName(eform.getUserName().toLowerCase());
 			

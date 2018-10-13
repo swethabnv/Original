@@ -12,7 +12,7 @@
 <!--	    <property name="hibernate.connection.url">jdbc:mysql://172.88.4.183/wsn15?characterEncoding=UTF-8</property>-->
  	  	<property name="hibernate.connection.username">b516f81a2fdc2a</property>
         <property name="hibernate.connection.password">ee11375f</property>
-       
+        <property name="hibernate.current_session_context_class">thread</property>
         <property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
 		<property name="hibernate.c3p0.min_size">5</property>
 		<property name="hibernate.c3p0.max_size">100</property>

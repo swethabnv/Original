@@ -1,6 +1,7 @@
 package com.dcs.hibernate;
 
 import javax.naming.InitialContext;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -10,28 +11,29 @@ import org.hibernate.SessionFactory;
 public class HibernateHome {
 	private static final Logger log = Logger.getLogger(HibernateHome.class);
 	public static  String SESSION_FACTORY_NAME = "SessionFactory";
-	public  final SessionFactory sessionFactory = getSessionFactory();
+	public static final SessionFactory sessionFactory = getSessionFactory();
 	
 	
 
 	public  static SessionFactory getSessionFactory() {
 		try {
 			//System.out.println("entered heroku as session factory name added comp env values" );
-			//return (SessionFactory) new InitialContext().lookup("java:comp/env/jdbc/heroku_12c8f021a06a74a");
-	
-			System.out.println("Checking by removing jdbc");
+		//return (SessionFactory) new InitialContext().lookup(SESSION_FACTORY_NAME);
+			if(sessionFactory==null)
+			{
+			
+		  System.out.println("Checking by removing jdbc");
 			String jdbcDbUrl = "mysql://eu-cdbr-west-02.cleardb.net:3306/heroku_12c8f021a06a74a?characterEncoding=UTF-8";
 			String jdbcDbUname="b516f81a2fdc2a";
 			String jdbcPwd="ee11375f";
 			String jdsfname="heroku_12c8f021a06a74a";
 			
 			
-		//InitialContext initialContext = new InitialContext();
-			//SessionFactory sf = (SessionFactory)  initialContext.lookup("heroku_12c8f021a06a74a");*/
+		
 			
 			
-             Configuration con= new Configuration();		
-         	System.out.println("Entered Configuration");
+          Configuration con= new Configuration();		
+      /* 	System.out.println("Entered Configuration");
 			con.setProperty("hibernate.connection.driver_class",
 					"com.mysql.jdbc.Driver");
 					con.setProperty("hibernate.connection.url",
@@ -45,8 +47,8 @@ public class HibernateHome {
 					con.setProperty("hibernate.c3p0.max_size", "100");
 					
 					con.setProperty("hibernate.c3p0.max_statements","50");
-					con.setProperty("hibernate.c3p0.maxConnectionAge", "1800");
-					con.setProperty("hibernate.c3p0.maxIdleTime", "900");
+					con.setProperty("hibernate.c3p0.maxConnectionAge", "2800");
+					con.setProperty("hibernate.c3p0.maxIdleTime", "2900");
 					
 					con.setProperty("hibernate.c3p0.idle_test_period","3000");
 					con.setProperty("hibernate.c3p0.preferredTestQuery", "select 1 from dual");
@@ -58,18 +60,15 @@ public class HibernateHome {
 					
 					
 					
-					System.out.println("the values are"+jdbcDbUname);
-					return con.configure("hibernate.cfg.xml").buildSessionFactory();
-					
-					
-					
-							
-					
-					
-			/*		sf= con.configure("hibernate.cfg.xml").buildSessionFactory();
-					initialContext.bind("SessionFactory", sf);
-					return sf;*/
-					
+					System.out.println("the values are"+jdbcDbUname);*/
+					  System.out.println("Session factory construction through configuration");
+					return con.configure().buildSessionFactory();
+			}
+			else
+			{
+				return sessionFactory;
+			}
+										
 					
 		
 		   

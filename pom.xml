@@ -106,12 +106,6 @@
 
 
 	<dependency>
-    <groupId>WSNData1</groupId>
-    <artifactId>WSNData1</artifactId>
-   <version>1.0</version>
-</dependency>
-
-	<dependency>
     <groupId>WSNDB1</groupId>
     <artifactId>WSNDB1</artifactId>
     <version>1.0</version>
@@ -270,6 +264,12 @@
     <version>2.7.6</version>
 </dependency>
 
+  <!-- https://mvnrepository.com/artifact/jfree/jcommon -->
+<dependency>
+    <groupId>jfree</groupId>
+    <artifactId>jcommon</artifactId>
+    <version>1.0.15</version>
+</dependency>
   		
   	</dependencies>
   	
