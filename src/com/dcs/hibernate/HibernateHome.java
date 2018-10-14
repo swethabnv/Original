@@ -33,7 +33,7 @@ public class HibernateHome {
 			
 			
           Configuration con= new Configuration();		
-      /* 	System.out.println("Entered Configuration");
+      System.out.println("Entered Configuration");
 			con.setProperty("hibernate.connection.driver_class",
 					"com.mysql.jdbc.Driver");
 					con.setProperty("hibernate.connection.url",
@@ -60,7 +60,7 @@ public class HibernateHome {
 					
 					
 					
-					System.out.println("the values are"+jdbcDbUname);*/
+					System.out.println("the values are"+jdbcDbUname);
 					  System.out.println("Session factory construction through configuration");
 					return con.configure().buildSessionFactory();
 			}
