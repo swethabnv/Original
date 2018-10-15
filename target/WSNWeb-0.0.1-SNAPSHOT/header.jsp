@@ -59,7 +59,9 @@ function loadMenu(author){
 				if(author=="<%=userA.getMenuId()%>"){
 					read = "<%=userA.getAuthorize().split("")[1]%>";
 					write = "<%=userA.getAuthorize().split("")[2]%>";
+					alert("<%=userA.getAuthorize().split("")[3]%>");
 					del = "<%=userA.getAuthorize().split("")[3]%>";
+				
 					if (read == "0") {
 						if(author == "M01"){
 							window.location = "<%=request.getContextPath()%>/PlantList.do";
