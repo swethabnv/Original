@@ -58,7 +58,9 @@ function loadMenu(author){
 			if(author!=null){
 				if(author=="<%=userA.getMenuId()%>"){
 					read = "<%=userA.getAuthorize().split("")[1]%>";
+					alert("<%=userA.getAuthorize().split("")[1]%>");
 					write = "<%=userA.getAuthorize().split("")[2]%>";
+					alert("<%=userA.getAuthorize().split("")[2]%>");
 					alert("<%=userA.getAuthorize().split("")[3]%>");
 					del = "<%=userA.getAuthorize().split("")[3]%>";
 				
