@@ -263,7 +263,7 @@ function getProvinceInfo(objRName, objPName)
                  <dcs:textcolumn dataField="thaiName" headerText="อำเภอ" width="250" style="cursor:pointer;" sortable="true" HAlign="left" cssClass="address-sr" onClick="edit('{regionNo}','{provinceNo}','{districtNo}','{thaiName}','{engName}');"/>
                  <dcs:textcolumn dataField="provinceName" headerText="จังหวัด" style="cursor:pointer;" width="250" sortable="true" HAlign="left" cssClass="address-sr" onClick="edit('{regionNo}','{provinceNo}','{districtNo}','{thaiName}','{engName}');"/>
                  <dcs:textcolumn dataField="regionName" headerText="ภูมิภาค" style="cursor:pointer;" width="250" sortable="true" HAlign="left" cssClass="tel-sr" onClick="edit('{regionNo}','{provinceNo}','{districtNo}','{thaiName}','{engName}');"/>
-                 <dcs:imagecolumn dataField="linkImageEdit" headerText=""  toolTip="แก้ไข" style="padding-top:2px;cursor:pointer;" width="30"  HAlign="center" cssClass="manage-sr" onClick="edit('{regionNo}','{provinceNo}','{districtNo}','{thaiName}','{engName}');"/>
+                 <dcs:imagecolumn dataField="linkImageEdit" headerText=""   style="padding-top:2px;cursor:pointer;" width="30"  HAlign="center" cssClass="manage-sr" onClick="edit('{regionNo}','{provinceNo}','{districtNo}','{thaiName}','{engName}');"/>
                 
                  </dcs:grid>
             </td>

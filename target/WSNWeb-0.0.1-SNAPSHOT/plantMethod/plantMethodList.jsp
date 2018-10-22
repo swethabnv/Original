@@ -177,7 +177,7 @@
                         <dcs:textcolumn dataField="plantMethodName" headerText="ชื่อวิธีการปลูก" width="75" style="cursor:pointer;" sortable="true" HAlign="left" cssClass="address-sr" onClick="loadEdit('{plantMethodId}');"/>
                         <!-- dcs:textcolumn dataField="breedTypeName" headerText="ชื่อพืช" width="70" sortable="true" HAlign="left" cssClass="address-sr" style="cursor:pointer;" onClick="loadEdit('{plantMethodId}');"/-->
                         <!-- dcs:textcolumn dataField="breedGroupName" headerText="ชื่อพันธุ์" width="60" sortable="true" HAlign="left" cssClass="tel-sr" style="cursor:pointer;" onClick="loadEdit('{plantMethodId}');"/-->
-                        <dcs:imagecolumn dataField="linkImageEdit" headerText="" toolTip="แก้ไข" style="cursor:pointer;padding-top:2px"  width="5"  HAlign="center" cssClass="manage-sr" onClick="loadEdit('{plantMethodId}');"/>
+                        <dcs:imagecolumn dataField="linkImageEdit" headerText=""  style="cursor:pointer;padding-top:2px"  width="5"  HAlign="center" cssClass="manage-sr" onClick="loadEdit('{plantMethodId}');"/>
                     </dcs:grid>
                     </td><% } %>
                 </tr></table>

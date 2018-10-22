@@ -352,7 +352,7 @@ function showErrorMessage(){
 					style="cursor:pointer;" onClick="loadEdit('{buyerId}','{buyerName}');" />
 				<dcs:textcolumn dataField="mobile" headerText="เบอร์โทร" width="100" sortable="true" HAlign="left" cssClass="tel-sr"
 					style="cursor:pointer;" onClick="loadEdit('{buyerId}','{buyerName}');" />
-				<dcs:imagecolumn dataField="linkImageEdit" headerText="" toolTip="แก้ไข" style="cursor:pointer;padding-top:2px" width="40"
+				<dcs:imagecolumn dataField="linkImageEdit" headerText=""  style="cursor:pointer;padding-top:2px" width="40"
 					HAlign="center" cssClass="manage-sr" onClick="loadEdit('{buyerId}','{buyerName}');" />
 			</dcs:grid></td>
 			<% } %>

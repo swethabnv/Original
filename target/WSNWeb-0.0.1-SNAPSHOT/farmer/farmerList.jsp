@@ -202,7 +202,7 @@ function showErrorMessage(){
                  	<dcs:textcolumn dataField="firstName" style="cursor:pointer;" headerText="ชื่อ" width="150" sortable="true" HAlign="left" cssClass="address-sr" onClick="loadEdit('{idCard}','{effectiveDate}');"/>
                  	<dcs:textcolumn dataField="lastName" style="cursor:pointer;" headerText="สกุล" width="150" sortable="true" HAlign="left" cssClass="address-sr" onClick="loadEdit('{idCard}','{effectiveDate}');"/>
                  	<dcs:textcolumn dataField="tel" style="cursor:pointer;" headerText="เบอร์โทร" width="150" sortable="true" HAlign="left" cssClass="address-sr" onClick="loadEdit('{idCard}','{effectiveDate}');"/>
-                 	<dcs:imagecolumn dataField="linkImageEdit" toolTip="แก้ไข" headerText="" style="padding-top:2px;cursor:pointer;" width="30"  HAlign="center" cssClass="manage-sr" onClick="loadEdit('{idCard}','{effectiveDate}');"/>
+                 	<dcs:imagecolumn dataField="linkImageEdit"  headerText="" style="padding-top:2px;cursor:pointer;" width="30"  HAlign="center" cssClass="manage-sr" onClick="loadEdit('{idCard}','{effectiveDate}');"/>
                  	</dcs:grid>
             	</td>
             	<% } %>

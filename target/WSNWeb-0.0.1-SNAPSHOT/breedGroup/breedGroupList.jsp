@@ -193,7 +193,7 @@ function showErrorMessage(){
                  	<!-- dcs:rownumcolumn headerText="ลำดับที่" width="55" HAlign="center"/> -->
                  	<dcs:textcolumn dataField="breedGroupName" headerText="ชื่อกลุ่มพันธุ์" style="cursor:pointer;" width="70" sortable="true" HAlign="left" cssClass="address-sr" onClick="loadEdit('{breedGroupId}','{breedGroupName}','{breedTypeId}');"/>
                  	<dcs:textcolumn dataField="breedTypeName" headerText="ชื่อชนิดพืช" style="cursor:pointer;" width="70" sortable="true" HAlign="left" cssClass="address-sr" onClick="loadEdit('{breedGroupId}','{breedGroupName}','{breedTypeId}');"/>
-                 	<dcs:imagecolumn dataField="linkImageEdit" toolTip="แก้ไข" style="padding-top:2px;cursor:pointer;" headerText=""  width="5" HAlign="center" cssClass="manage-sr" onClick="loadEdit('{breedGroupId}','{breedGroupName}','{breedTypeId}');"/>
+                 	<dcs:imagecolumn dataField="linkImageEdit"  style="padding-top:2px;cursor:pointer;" headerText=""  width="5" HAlign="center" cssClass="manage-sr" onClick="loadEdit('{breedGroupId}','{breedGroupName}','{breedTypeId}');"/>
                  	</dcs:grid>
             	</td>
             	<% } %>

@@ -347,8 +347,8 @@
 						<dcs:textcolumn dataField="subDistrictName" headerText="ตำบล" width="100" sortable="true" cssClass="tel-sr" style="cursor:pointer;" HAlign="left" onClick="loadEdit('{farmerGroupId}','{farmerGroupName}');"/>
 						<dcs:textcolumn dataField="countFarmer" headerText="จำนวนสมาชิก" width="80" sortable="true" cssClass="tel-sr" style="cursor:pointer;" HAlign="center" onClick="loadEdit('{farmerGroupId}','{farmerGroupName}');"/>
 						<dcs:textcolumn dataField="strTarget" headerText="เป้าหมาย (ตัน)" style="cursor:pointer;padding-right:10px;text-align:right" width="70" sortable="true" HAlign="center" cssClass="tel-sr" onClick="loadEdit('{farmerGroupId}','{farmerGroupName}');"/>
-						<dcs:imagecolumn dataField="linkImageFarmerGroupEdit" toolTip="จัดการสมาชิกสหกรณ์" style="cursor:pointer;" headerText=""  width="40" HAlign="center" cssClass="manage-sr" onClick="addCooperativeGroupFarmer('{farmerGroupId}','{farmerGroupName}','{target}');"/>
-						<dcs:imagecolumn dataField="linkImageEdit" toolTip="แก้ไข" style="padding-top:2px;cursor:pointer;"  headerText=""  width="40"  HAlign="center" cssClass="manage-sr" onClick="loadEdit('{farmerGroupId}','{farmerGroupName}');"/>
+						<dcs:imagecolumn dataField="linkImageFarmerGroupEdit"  style="cursor:pointer;" headerText=""  width="40" HAlign="center" cssClass="manage-sr" onClick="addCooperativeGroupFarmer('{farmerGroupId}','{farmerGroupName}','{target}');"/>
+						<dcs:imagecolumn dataField="linkImageEdit" style="padding-top:2px;cursor:pointer;"  headerText=""  width="40"  HAlign="center" cssClass="manage-sr" onClick="loadEdit('{farmerGroupId}','{farmerGroupName}');"/>
 					</dcs:grid></td>
 				<% } %></tr></table>
 				<div style="text-align:center; font-style:Italic;">ผลการค้นหาทั้งหมด <%=String.valueOf(session.getAttribute("countCooperativeGroup"))%> รายการ</div>

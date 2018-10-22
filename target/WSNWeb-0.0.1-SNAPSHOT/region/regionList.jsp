@@ -166,7 +166,7 @@ function showErrorMessage(){
                  <dcs:checkboxcolumn name="delRegionNo" dataField="regionNo" headerText="" width="165" />
                  <!-- dcs:rownumcolumn headerText="ลำดับที่" width="140" /> -->
                  <dcs:textcolumn dataField="regionName" headerText="ภูมิภาค" width="200" style="cursor:pointer;" sortable="true" onClick="edit('{regionNo}','{regionName}');"/>
-                 <dcs:imagecolumn dataField="linkImageEdit" headerText=""  width="5"  toolTip="แก้ไข" style="padding-top:2px;cursor:pointer;" HAlign="center" cssClass="manage-sr" onClick="edit('{regionNo}','{regionName}');"/>
+                 <dcs:imagecolumn dataField="linkImageEdit" headerText=""  width="5"   style="padding-top:2px;cursor:pointer;" HAlign="center" cssClass="manage-sr" onClick="edit('{regionNo}','{regionName}');"/>
                  </dcs:grid>
             </td>
             <% } %>

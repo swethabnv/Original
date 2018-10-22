@@ -58,11 +58,10 @@ function loadMenu(author){
 			if(author!=null){
 				if(author=="<%=userA.getMenuId()%>"){
 					read = "<%=userA.getAuthorize().split("")[1]%>";
-					alert("<%=userA.getAuthorize().split("")[1]%>");
+					
 					write = "<%=userA.getAuthorize().split("")[2]%>";
-					alert("<%=userA.getAuthorize().split("")[2]%>");
-					alert("<%=userA.getAuthorize().split("")[3]%>");
-					del = "<%=userA.getAuthorize().split("")[3]%>";
+					
+				
 				
 					if (read == "0") {
 						if(author == "M01"){
@@ -77,13 +76,7 @@ function loadMenu(author){
 						//$('[id^="write"]').css('display','none');
 						$('[id^="write"]').remove();
 					}
-					if (del == "0") {
-						ele = document.getElementById("del");
-						if (ele != null) {
-							document.getElementById("del").style.display = "none";
-							document.getElementById("del").outerHTML = "";
-						}
-					}
+					
 					
 					if (write == "0") {
 						if(author == "M24"){

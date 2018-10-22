@@ -345,7 +345,7 @@ function showErrorMessage(){
                  <dcs:textcolumn dataField="districtName" style="cursor:pointer;" headerText="อำเภอ" width="200" sortable="true" HAlign="left" cssClass="address-sr"  onClick="edit('{regionNo}','{provinceNo}','{districtNo}','{subDistrictNo}','{thaiName}','{engName}','{postCode}');"/>
                  <dcs:textcolumn dataField="provinceName" style="cursor:pointer;" headerText="จังหวัด" width="200" sortable="true" HAlign="left" cssClass="address-sr"  onClick="edit('{regionNo}','{provinceNo}','{districtNo}','{subDistrictNo}','{thaiName}','{engName}','{postCode}');"/>
                  <dcs:textcolumn dataField="regionName" style="cursor:pointer;" headerText="ภูมิภาค" width="200" sortable="true" HAlign="left" cssClass="address-sr"  onClick="edit('{regionNo}','{provinceNo}','{districtNo}','{subDistrictNo}','{thaiName}','{engName}','{postCode}');"/>
-                 <dcs:imagecolumn dataField="linkImageEdit" style="padding-top:2px;cursor:pointer;" toolTip="แก้ไข" headerText=""  width="30"  HAlign="center" cssClass="manage-sr" onClick="edit('{regionNo}','{provinceNo}','{districtNo}','{subDistrictNo}','{thaiName}','{engName}','{postCode}');"/>
+                 <dcs:imagecolumn dataField="linkImageEdit" style="padding-top:2px;cursor:pointer;"  headerText=""  width="30"  HAlign="center" cssClass="manage-sr" onClick="edit('{regionNo}','{provinceNo}','{districtNo}','{subDistrictNo}','{thaiName}','{engName}','{postCode}');"/>
                  </dcs:grid>
             </td>
             <% } %>

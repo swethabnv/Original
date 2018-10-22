@@ -300,9 +300,9 @@ function showErrorMessage(){
                  <dcs:textcolumn dataField="checkPeriod" headerText="ระยะการตรวจ" width="110" sortable="true" HAlign="left" cssClass="tel-sr" style="cursor:pointer" onClick="loadEdit('{landCheckId}');"/>
                  <dcs:textcolumn dataField="landRight" headerText="เอกสารสิทธิ์/เลขที่" width="130" sortable="true" HAlign="center" cssClass="tel-sr" style="cursor:pointer" onClick="loadEdit('{landCheckId}');"/>
                  <dcs:textcolumn dataField="checkResult" headerText="ผลการตรวจ" width="95" sortable="true" HAlign="center" cssClass="tel-sr" style="cursor:pointer" onClick="loadEdit('{landCheckId}');"/>
-                 <dcs:textcolumn dataField="plantYear" headerText="ปีการผลิต" width="85" sortable="true" HAlign="center" cssClass="tel-sr" style="cursor:pointer" onClick="loadEdit('{landCheckId}'); " style="cursor:pointer" />
-                 <dcs:textcolumn dataField="plantNo" headerText="ครั้งที่" width="50" sortable="true" HAlign="center" cssClass="tel-sr" style="cursor:pointer" onClick="loadEdit('{landCheckId}'); " style="cursor:pointer" />
-                 <dcs:imagecolumn dataField="linkImageEdit" headerText="" toolTip="แก้ไข" width="30" HAlign="center" cssClass="manage-sr" style="padding-top:2px;cursor:pointer;" onClick="loadEdit('{landCheckId}');" />
+                 <dcs:textcolumn dataField="plantYear" headerText="ปีการผลิต" width="85" sortable="true" HAlign="center" cssClass="tel-sr" style="cursor:pointer" onClick="loadEdit('{landCheckId}'); " />
+                 <dcs:textcolumn dataField="plantNo" headerText="ครั้งที่" width="50" sortable="true" HAlign="center" cssClass="tel-sr" style="cursor:pointer" onClick="loadEdit('{landCheckId}'); " />
+                 <dcs:imagecolumn dataField="linkImageEdit" headerText=""  width="30" HAlign="center" cssClass="manage-sr" style="padding-top:2px;cursor:pointer;" onClick="loadEdit('{landCheckId}');" />
                  </dcs:grid>
             </td>
             <% } %>

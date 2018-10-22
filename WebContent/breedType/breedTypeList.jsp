@@ -161,7 +161,7 @@ function showErrorMessage(){
                  	<!-- dcs:rownumcolumn headerText="ลำดับที่" width="140" style="cursor:pointer;" HAlign="center"/> -->
                  	<dcs:textcolumn dataField="breedTypeName" headerText="ชื่อชนิดพืช" width="200" sortable="true" style="cursor:pointer;" HAlign="left" cssClass="address-sr" onClick="loadEdit('{breedTypeId}','{breedTypeName}','{maxPerYear}');"/>
                  	<dcs:textcolumn dataField="maxPerYear" headerText="จำนวนสูงสุดในการปลูก(ต่อปี)" width="200" sortable="true" style="cursor:pointer;" HAlign="left" cssClass="address-sr" onClick="loadEdit('{breedTypeId}','{breedTypeName}','{maxPerYear}');"/>
-                 	<dcs:imagecolumn dataField="linkImageEdit" toolTip="แก้ไข" headerText="" style="padding-top:2px;cursor:pointer;" width="5"  HAlign="center" cssClass="manage-sr" onClick="loadEdit('{breedTypeId}','{breedTypeName}','{maxPerYear}');"/>
+                 	<dcs:imagecolumn dataField="linkImageEdit"  headerText="" style="padding-top:2px;cursor:pointer;" width="5"  HAlign="center" cssClass="manage-sr" onClick="loadEdit('{breedTypeId}','{breedTypeName}','{maxPerYear}');"/>
                  	</dcs:grid>
             	</td>
             	<% } %>

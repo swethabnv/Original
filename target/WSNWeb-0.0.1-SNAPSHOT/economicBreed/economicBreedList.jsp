@@ -185,7 +185,7 @@ function loadData(){
                  	<dcs:checkboxcolumn name="delbreedType" dataField="breedTypeDel" headerText="" width="600"  HAlign="left" />
                  	<dcs:textcolumn dataField="breedTypeName" headerText="ชื่อชนิดพืช" style="cursor:pointer;" width="550" sortable="true" HAlign="left" cssClass="address-sr" onClick="loadEdit('{breedTypeId}','{provinceNo}','{regionNo}');"/>
                  	<dcs:textcolumn dataField="provinceName" headerText="จังหวัด" style="cursor:pointer;" width="600" sortable="true" HAlign="left" cssClass="address-sr" onClick="loadEdit('{breedTypeId}','{provinceNo}','{regionNo}');"/>
-                 	<dcs:imagecolumn dataField="linkImageEdit" headerText="" style="padding-top:2px;cursor:pointer;" toolTip="แก้ไข" width="30"  HAlign="center" cssClass="manage-sr" onClick="loadEdit('{breedTypeId}','{provinceNo}','{regionNo}');"/>
+                 	<dcs:imagecolumn dataField="linkImageEdit" headerText="" style="padding-top:2px;cursor:pointer;"  width="30"  HAlign="center" cssClass="manage-sr" onClick="loadEdit('{breedTypeId}','{provinceNo}','{regionNo}');"/>
                  	</dcs:grid>
             	</td>
             	<% } %>

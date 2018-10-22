@@ -314,7 +314,7 @@ function showErrorMessage(){
 				<dcs:textcolumn dataField="districtName" headerText="อำเภอ" width="60" sortable="true" HAlign="left" cssClass="tel-sr" style="cursor:pointer;" onClick="loadEdit('{branchCode}');" />
 				<dcs:textcolumn dataField="subDistrictName" headerText="ตำบล" width="55" sortable="true" HAlign="left" cssClass="tel-sr" style="cursor:pointer;" onClick="loadEdit('{branchCode}');" />
 				<dcs:textcolumn dataField="tel" headerText="เบอร์โทร" width="50" sortable="true" HAlign="left" cssClass="tel-sr" style="cursor:pointer;" onClick="loadEdit('{branchCode}');" />
-				<dcs:imagecolumn dataField="linkImageEdit" headerText="" toolTip="แก้ไข" width="20" HAlign="center" cssClass="manage-sr" style="cursor:pointer;" onClick="loadEdit('{branchCode}');" />
+				<dcs:imagecolumn dataField="linkImageEdit" headerText=""  width="20" HAlign="center" cssClass="manage-sr" style="cursor:pointer;" onClick="loadEdit('{branchCode}');" />
 			</dcs:grid></td>
 			<% } %>
 		</tr>

@@ -164,7 +164,7 @@ function showErrorMessage(){
                  <dcs:checkboxcolumn name="delBankId" dataField="bankId" headerText="" width="200" />
                  <!-- dcs:rownumcolumn headerText="ลำดับที่" width="140" /> -->
                  <dcs:textcolumn dataField="bankName" headerText="ชื่อธนาคาร" HAlign="left" width="220" style="cursor:pointer;" cssClass="manage-sr" sortable="true" onClick="edit('{bankId}','{bankName}');"/>
-                 <dcs:imagecolumn dataField="linkImageEdit" headerText=""  width="5"  toolTip="แก้ไข" style="padding-top:2px;cursor:pointer;" HAlign="center" cssClass="manage-sr" onClick="edit('{bankId}','{bankName}');"/>
+                 <dcs:imagecolumn dataField="linkImageEdit" headerText=""  width="5"   style="padding-top:2px;cursor:pointer;" HAlign="center" cssClass="manage-sr" onClick="edit('{bankId}','{bankName}');"/>
                  </dcs:grid>
             </td>
             <% } %>

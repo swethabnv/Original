@@ -159,7 +159,7 @@ function showErrorMessage(){
                  	<dcs:checkboxcolumn name="delCost" dataField="costId" headerText="" width="165"  HAlign="left" />
                  	<!-- dcs:rownumcolumn headerText="ลำดับที่" width="140"/> -->
                  	<dcs:textcolumn dataField="costName" headerText="รายการค่าใช้จ่าย" width="200" sortable="true" HAlign="left" style="cursor:pointer" onClick="loadEdit('{costId}','{costName}');"/>
-                 	<dcs:imagecolumn dataField="linkImageEdit" headerText="" style="padding-top:2px;cursor:pointer;" width="5"  HAlign="center" toolTip="แก้ไข" cssClass="manage-sr" onClick="loadEdit('{costId}','{costName}');"/>
+                 	<dcs:imagecolumn dataField="linkImageEdit" headerText="" style="padding-top:2px;cursor:pointer;" width="5"  HAlign="center"  cssClass="manage-sr" onClick="loadEdit('{costId}','{costName}');"/>
                  	</dcs:grid>
             	</td>
             	<% } %>

@@ -177,7 +177,7 @@ function showErrorMessage(){
                  <dcs:rownumcolumn headerText="ลำดับที่" width="80" HAlign="center"/>   
                  <dcs:textcolumn dataField="abbrPrefix" headerText="คำนำหน้า" width="80" sortable="true" HAlign="left" cssClass="address-sr" style="cursor:pointer;" onClick="loadEdit('{abbrPrefix}','{fullPrefix}');"/>
                  <dcs:textcolumn dataField="fullPrefix" headerText="คำนำหน้าเต็ม" width="80" sortable="true" HAlign="left" cssClass="address-sr" style="cursor:pointer;" onClick="loadEdit('{abbrPrefix}','{fullPrefix}');"/>
-                 <dcs:imagecolumn dataField="linkImageEdit" headerText="" toolTip="แก้ไข" width="30"  HAlign="center" cssClass="manage-sr" style="padding-top:2px;cursor:pointer;" onClick="loadEdit('{abbrPrefix}','{fullPrefix}');"/>
+                 <dcs:imagecolumn dataField="linkImageEdit" headerText=""  width="30"  HAlign="center" cssClass="manage-sr" style="padding-top:2px;cursor:pointer;" onClick="loadEdit('{abbrPrefix}','{fullPrefix}');"/>
                  </dcs:grid>
             </td>
             <% } %>

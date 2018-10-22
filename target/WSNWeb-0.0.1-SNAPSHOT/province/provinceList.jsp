@@ -190,7 +190,7 @@ function showErrorMessage(){
                  <dcs:textcolumn dataField="thaiName" headerText="จังหวัด" style="cursor:pointer;" width="500" sortable="true" HAlign="left" cssClass="address-sr" onClick="edit('{regionNo}','{provinceNo}','{thaiName}','{engName}');"/>
                 
                  <dcs:textcolumn dataField="regionName" headerText="ภูมิภาค" style="cursor:pointer;" width="650" sortable="true" HAlign="left" cssClass="tel-sr" onClick="edit('{regionNo}','{provinceNo}','{thaiName}','{engName}');"/>
-                 <dcs:imagecolumn dataField="linkImageEdit" headerText=""  toolTip="แก้ไข" width="30"  style="padding-top:2px;cursor:pointer;" HAlign="center" cssClass="manage-sr" onClick="edit('{regionNo}','{provinceNo}','{thaiName}','{engName}');"/>
+                 <dcs:imagecolumn dataField="linkImageEdit" headerText=""   width="30"  style="padding-top:2px;cursor:pointer;" HAlign="center" cssClass="manage-sr" onClick="edit('{regionNo}','{provinceNo}','{thaiName}','{engName}');"/>
                  
                  </dcs:grid>
             </td>

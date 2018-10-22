@@ -629,13 +629,13 @@ function saveMemberStatus(){
                  <dcs:textcolumn dataField="districtName" headerText="อำเภอ" width="150" sortable="true" HAlign="left" cssClass="tel-sr" style="cursor:pointer" onClick="loadEdit('{plantId}','{idCard}');"/>
                  <dcs:textcolumn dataField="breedTypeName" headerText="ชนิดพีช" width="80" sortable="true" HAlign="left" cssClass="tel-sr" style="cursor:pointer" onClick="loadEdit('{plantId}','{idCard}');"/>
                  <dcs:textcolumn dataField="plantYear" headerText="ปีการผลิต" width="80" sortable="true" HAlign="left" cssClass="tel-sr" style="cursor:pointer" onClick="loadEdit('{plantId}','{idCard}');"/>
-                 <dcs:textcolumn dataField="plantNo" headerText="ครั้งที่" width="60" sortable="true" HAlign="center" cssClass="tel-sr" style="cursor:pointer" onClick="loadEdit('{plantId}','{idCard}'); " style="cursor:pointer" />
+                 <dcs:textcolumn dataField="plantNo" headerText="ครั้งที่" width="60" sortable="true" HAlign="center" cssClass="tel-sr" style="cursor:pointer" onClick="loadEdit('{plantId}','{idCard}'); " />
                  <dcs:textcolumn dataField="plantStatus" headerText="สถานะ" width="70" sortable="true" HAlign="center" cssClass="tel-sr" style="cursor:pointer" onClick="loadEdit('{plantId}','{idCard}');"/>
                  <% if("5".equals(chkUser.getGroupUser())){%>
                  <dcs:textcolumn dataField="statusPopup" headerText="" width="88" sortable="false" HAlign="center" cssClass="tel-sr" style="cursor:pointer; text-decoration: underline; color: blue" onClick="statusPopup('{plantId}','{idCard}','{plantStatus}','{reason}');"/>
                  <% }%>
-                 <dcs:imagecolumn dataField="linkImageStatus" headerText="" toolTip="แก้ไขสถานะ" width="26" HAlign="center" cssClass="manage-sr" style="padding-top:2px;cursor:pointer;" onClick="changeStatusPopup('{plantId}','{idCard}','{status}','{remark}');" />
-                 <dcs:imagecolumn dataField="linkImageEdit" headerText="" toolTip="แก้ไข" width="26" HAlign="center" cssClass="manage-sr" style="padding-top:2px;cursor:pointer;" onClick="loadEdit('{plantId}','{idCard}');" />
+                 <dcs:imagecolumn dataField="linkImageStatus" headerText=""  width="26" HAlign="center" cssClass="manage-sr" style="padding-top:2px;cursor:pointer;" onClick="changeStatusPopup('{plantId}','{idCard}','{status}','{remark}');" />
+                 <dcs:imagecolumn dataField="linkImageEdit" headerText=""  width="26" HAlign="center" cssClass="manage-sr" style="padding-top:2px;cursor:pointer;" onClick="loadEdit('{plantId}','{idCard}');" />
                  </dcs:grid>
             </td>
             <% } %>

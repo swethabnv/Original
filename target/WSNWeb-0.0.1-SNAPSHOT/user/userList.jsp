@@ -549,9 +549,9 @@ function showErrorMessage(){
                  <!--dcs:textcolumn dataField="email" headerText="Email" width="140" sortable="true" HAlign="left" style="cursor:pointer;"cssClass="tel-sr" onClick="loadEdit('{userName}','{abbrPrefix}','{firstName}','{lastName}','{email}','{branchCode}','{branchName}');"/>-->
                  <!--dcs:textcolumn dataField="branchName" headerText="สาขา" width="180" sortable="true" HAlign="left" style="cursor:pointer;"cssClass="tel-sr" onClick="loadEdit('{userName}','{abbrPrefix}','{firstName}','{lastName}','{email}','{branchCode}','{branchName}');"/>-->
                  <dcs:textcolumn dataField="status" headerText="สถานะ" width="60" sortable="true" HAlign="left"style="cursor:pointer;" cssClass="age-sr" onClick="loadEdit('{userName}','{abbrPrefix}','{firstName}','{lastName}','{email}','{branchCode}','{status}');"/>
-                 <dcs:imagecolumn dataField="linkImageReset"  headerText="" toolTip="Reset Password" width="22"  style="cursor:pointer;" HAlign="left" cssClass="manage-sr" onClick="resetPassword('{userName}');"/>
-                 <dcs:imagecolumn dataField="linkImageAccess"  headerText="" toolTip="Access Control" width="22" style="cursor:pointer;" HAlign="left" cssClass="manage-sr" onClick="accessControl('{userName}','{firstName}','{lastName}');"/>
-                 <dcs:imagecolumn dataField="linkImageEdit" headerText="" toolTip="แก้ไข" width="22" style="cursor:pointer;" HAlign="left" cssClass="manage-sr" onClick="loadEdit('{userName}','{abbrPrefix}','{firstName}','{lastName}','{email}','{branchCode}','{status}');"/>
+                 <dcs:imagecolumn dataField="linkImageReset"  headerText=""  width="22"  style="cursor:pointer;" HAlign="left" cssClass="manage-sr" onClick="resetPassword('{userName}');"/>
+                 <dcs:imagecolumn dataField="linkImageAccess"  headerText=""  width="22" style="cursor:pointer;" HAlign="left" cssClass="manage-sr" onClick="accessControl('{userName}','{firstName}','{lastName}');"/>
+                 <dcs:imagecolumn dataField="linkImageEdit" headerText=""  width="22" style="cursor:pointer;" HAlign="left" cssClass="manage-sr" onClick="loadEdit('{userName}','{abbrPrefix}','{firstName}','{lastName}','{email}','{branchCode}','{status}');"/>
                 
                  </dcs:grid>
             </td>
