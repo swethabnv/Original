@@ -48,7 +48,7 @@ public class UserHome extends HibernateHome
 			Criteria crit = sessionFactory.getCurrentSession().createCriteria(User.class);
 			
 			crit.add(Restrictions.eq("userName", userName));
-			//crit.add(Restrictions.eq("password", password));
+			crit.add(Restrictions.eq("password", password));
 			crit.add(Restrictions.eq("active", true));
 			System.out.println("entered database2");
 			return (User) crit.uniqueResult();
@@ -63,7 +63,7 @@ public class UserHome extends HibernateHome
 		try {		
 			Criteria crit = sessionFactory.getCurrentSession().createCriteria(User.class);
 			crit.add(Restrictions.eq("userName", userName));
-			//crit.add(Restrictions.eq("password", password));
+			crit.add(Restrictions.eq("password", password));
 			User getUser = (User) crit.uniqueResult();	
 			if(getUser !=null) {
 				return true;
